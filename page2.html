@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>กำหนดการวันแรกและข้อปฏิบัติ - ภาควิชาโสต ศอ นาสิกวิทยา</title>
+    <title>ขั้นตอนการติดต่อศึกษาดูงาน - ภาควิชาโสต ศอ นาสิกวิทยา</title>
     
-    <!-- Google Fonts: Prompt for Thai text -->
+    <!-- Google Fonts: ใช้ฟอนต์ Prompt สำหรับภาษาไทยและอังกฤษเพื่อความทันสมัยและอ่านง่าย -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Font Awesome for Icons -->
+    <!-- Font Awesome สำหรับไอคอนตกแต่ง -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <script>
@@ -25,16 +25,16 @@
                     },
                     colors: {
                         cool: {
-                            50: '#f0f9ff',
-                            100: '#e0f2fe',
-                            200: '#bae6fd',
-                            300: '#7dd3fc',
-                            400: '#38bdf8',
-                            500: '#0ea5e9',
-                            600: '#0284c7',
-                            700: '#0369a1',
-                            800: '#075985',
-                            900: '#0c4a6e',
+                            50: '#f0f9ff', // Sky 50
+                            100: '#e0f2fe', // Sky 100
+                            200: '#bae6fd', // Sky 200
+                            300: '#7dd3fc', // Sky 300
+                            400: '#38bdf8', // Sky 400
+                            500: '#0ea5e9', // Sky 500
+                            600: '#0284c7', // Sky 600
+                            700: '#0369a1', // Sky 700
+                            800: '#075985', // Sky 800
+                            900: '#0c4a6e', // Sky 900
                         },
                         slate: {
                             850: '#1e293b',
@@ -49,413 +49,340 @@
         body {
             font-family: 'Prompt', sans-serif;
             scroll-behavior: smooth;
-            background-color: #f8fafc;
-        }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: 1.5rem; /* 24px */
-            top: 3rem;
-            bottom: -1rem;
-            width: 2px;
-            background-color: #bae6fd; /* cool-200 */
-            z-index: 0;
-        }
-        .timeline-item:last-child::before {
-            display: none;
         }
     </style>
 </head>
-<body class="text-gray-700 antialiased selection:bg-cool-200 selection:text-cool-900 text-lg">
+<body class="bg-gray-50 text-gray-700 antialiased selection:bg-cool-200 selection:text-cool-900 text-lg md:text-xl">
 
-    <!-- Header -->
+    <!-- ส่วนหัวเว็บไซต์ (Header) -->
     <header class="bg-gradient-to-r from-cool-900 to-cool-700 text-white shadow-lg relative overflow-hidden">
-       
-
         <div class="absolute inset-0 opacity-10 pattern-dots"></div>
-        <div class="container mx-auto px-4 py-16 md:py-20 text-center relative z-10 max-w-4xl">
-            <div class="inline-block p-4 rounded-full bg-white/10 backdrop-blur-sm mb-6 border border-white/20 shadow-inner">
-                <i class="fa-solid fa-map-location-dot text-5xl md:text-6xl text-white"></i>
+        
+        <div class="container mx-auto px-4 pt-6 pb-2 relative z-20 flex justify-start items-center">
+            <a href="https://entmdcu.github.io/electiveentmdcu/" class="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 active:scale-95 text-white px-4 py-2 rounded-xl text-base font-medium transition-all duration-200 border border-white/20 shadow-sm backdrop-blur-md">
+                <i class="fa-solid fa-house text-lg"></i>
+                <span>หน้าแรก</span>
+            </a>
+        </div>
+
+        <div class="container mx-auto px-4 pb-10 pt-2 md:pb-14 text-center relative z-10">
+            <div class="inline-block p-4 rounded-full bg-white/10 backdrop-blur-sm mb-4 border border-white/20">
+                <i class="fa-solid fa-id-card-clip text-5xl md:text-6xl text-white"></i>
             </div>
-            <h1 class="text-3xl md:text-5xl font-bold mb-4 leading-tight">ปฐมนิเทศและข้อปฏิบัติ<br class="hidden md:block">สำหรับการศึกษาดูงาน</h1>
+            <h1 class="text-3xl md:text-5xl font-bold mb-3">ขั้นตอนการติดต่อเข้ามาศึกษาดูงาน</h1>
             <p class="text-cool-100 text-xl font-light">ภาควิชาโสต ศอ นาสิกวิทยา คณะแพทยศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย</p>
         </div>
     </header>
 
-    <main class="container mx-auto px-4 py-12 max-w-5xl space-y-12">
+    <main class="container mx-auto px-4 py-10 max-w-6xl space-y-12">
 
-        <!-- Welcome Banner -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 md:p-8 text-center border-t-4 border-t-cool-500">
-            <h2 class="text-2xl font-bold text-cool-800 mb-2">ยินดีต้อนรับ นิสิตและแพทย์ผู้ศึกษาดูงานทุกท่าน</h2>
-            <p class="text-gray-600 text-lg">ในวันแรกของการมาดูงาน ขอให้ทุกท่านมาเจอกันที่ภาควิชาฯ ตามกำหนดการด้านล่างนี้</p>
-        </div>
-
-        <!-- Section 1: First Day Timeline -->
-        <section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 md:p-12">
-            <h2 class="text-3xl font-bold text-cool-900 mb-8 flex items-center border-b pb-4">
-                <div class="bg-cool-100 text-cool-600 w-12 h-12 rounded-xl flex items-center justify-center mr-4">
-                    <i class="fa-regular fa-clock"></i>
-                </div>
-                กำหนดการวันแรก
+        <!-- ส่วนประกาศสำคัญช่วงงดรับผู้ศึกษาดูงาน (กล่องสีแดง) -->
+        <section class="bg-white border-l-8 border-red-500 p-8 rounded-r-xl shadow-sm ring-1 ring-gray-100">
+            <h2 class="text-2xl md:text-3xl font-bold text-red-700 mb-6 flex items-center gap-3">
+                <i class="fa-solid fa-bullhorn animate-pulse"></i> ประกาศสำคัญ: ช่วงงดรับผู้ดูงาน
             </h2>
+            <p class="text-gray-700 mb-6 font-medium text-lg">เนื่องจากในช่วงเวลาดังกล่าวมีผู้ลงทะเบียนครบเต็มจำนวนที่ภาควิชาฯ สามารถดูแลได้ ขออภัยในความไม่สะดวก</p>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-red-50 p-6 rounded-xl border border-red-100">
+                    <h3 class="font-bold text-red-800 mb-3 text-xl"><i class="fa-solid fa-user-xmark mr-2"></i> งดรับผู้ดูงานทั่วไป</h3>
+                    <ul class="list-disc list-inside text-red-700 space-y-2 text-base md:text-lg">
+                        <li>9 - 13 มีนาคม 2569 </li>
+                    </ul>
+                </div>
+                <div class="bg-red-50 p-6 rounded-xl border border-red-100">
+                    <h3 class="font-bold text-red-800 mb-3 text-xl"><i class="fa-solid fa-user-graduate mr-2"></i> งดรับเฉพาะนิสิตแพทย์</h3>
+                    <ul class="list-disc list-inside text-red-700 space-y-2 text-base md:text-lg">
+                        <li>15 - 26 มิถุนายน 2569</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-            <div class="space-y-6 relative pl-2">
-                <!-- Time 1 -->
-                <div class="timeline-item relative pl-16">
-                    <div class="absolute left-0 top-0 w-12 h-12 bg-cool-600 text-white rounded-full flex items-center justify-center font-bold text-sm shadow-md border-4 border-white z-10">
-                        07:30
+        <!-- ส่วนของไทม์ไลน์ขั้นตอนการดำเนินการ -->
+        <section>
+            <h2 class="text-3xl font-bold text-cool-900 mb-10 text-center">ขั้นตอนการดำเนินการ</h2>
+            
+            <div class="space-y-8">
+                <!-- ขั้นตอนที่ 1 -->
+                <div class="flex gap-6 md:gap-8">
+                    <div class="flex-shrink-0 flex flex-col items-center">
+                        <div class="w-12 h-12 md:w-16 md:h-16 bg-cool-600 text-white rounded-full flex items-center justify-center font-bold text-2xl shadow-md ring-4 ring-cool-50">1</div>
+                        <div class="h-full w-1.5 bg-cool-200 my-2 rounded"></div>
                     </div>
-                    <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:shadow-md transition">
-                        <h3 class="text-xl font-bold text-cool-800 mb-2">แลกบัตรเข้าพื้นที่ภาควิชาฯ</h3>
-                        <p class="text-gray-700">โปรดแลกบัตรเข้าภาควิชาที่ <strong>ตึกรัตนวิทยพัฒน์ ชั้น 17 (ลิฟต์ฝั่ง A)</strong></p>
-                        <div class="mt-3 inline-flex items-center gap-2 bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-semibold">
-                            <i class="fa-solid fa-triangle-exclamation"></i> การแลกบัตรจะต้องทำวันต่อวัน
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-200 w-full hover:border-cool-300 hover:shadow-md transition duration-300">
+                        <h3 class="text-2xl font-bold text-cool-800 mb-3"><i class="fa-solid fa-file-pen mr-2 text-cool-500"></i> กรอกแบบฟอร์มลงทะเบียน</h3>
+                        <p class="text-gray-600 mb-4">โปรดกรอกแบบฟอร์มลงทะเบียนศึกษาดูงานสำหรับภาควิชาโสต ศอ นาสิกวิทยา (ตามแบบฟอร์มด้านล่างสุดของหน้านี้)</p>
+                        
+                        <!-- ข้อความแจ้งเตือนการเลือกวันที่ -->
+                        <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-xl text-red-900 text-base md:text-lg font-medium space-y-1">
+                            <p class="font-bold text-red-700 flex items-center gap-2">
+                                <i class="fa-solid fa-circle-exclamation text-red-600"></i> ข้อกำหนดสำคัญในการระบุวันที่ศึกษาดูงาน:
+                            </p>
+                            <ul class="list-disc list-inside space-y-1 text-red-800 text-sm md:text-base font-normal">
+                                <li>กรุณาลงทะเบียนโดยระบุ <b>ช่วงเวลา/วันที่ท่านมั่นใจว่าจะสามารถมาได้จริงเพียงช่วงเวลาเดียวเท่านั้น</b></li>
+                                <li>ภาควิชาฯ จะเป็นผู้พิจารณาอนุมัติผลตามวันที่ท่านระบุไว้ <b>ขอสงวนสิทธิ์ไม่พิจารณาคำขอที่ระบุหลายช่วงเวลา หรือขอให้ภาควิชาฯ เป็นผู้เลือกช่วงเวลาให้</b></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
-                <!-- Time 2 -->
-                <div class="timeline-item relative pl-16">
-                    <div class="absolute left-0 top-0 w-12 h-12 bg-cool-600 text-white rounded-full flex items-center justify-center font-bold text-xl shadow-md border-4 border-white z-10">
-                        <i class="fa-solid fa-users"></i>
+                <!-- ขั้นตอนที่ 2 -->
+                <div class="flex gap-6 md:gap-8">
+                    <div class="flex-shrink-0 flex flex-col items-center">
+                        <div class="w-12 h-12 md:w-16 md:h-16 bg-cool-600 text-white rounded-full flex items-center justify-center font-bold text-2xl shadow-md ring-4 ring-cool-50">2</div>
+                        <div class="h-full w-1.5 bg-cool-200 my-2 rounded"></div>
                     </div>
-                    <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:shadow-md transition">
-                        <h3 class="text-xl font-bold text-cool-800 mb-2">ติดต่อธุรการ และเข้าร่วมกิจกรรมเช้า</h3>
-                        <p class="text-gray-700">เมื่อมาถึงโปรดติดต่อกับทางธุรการ และเข้าร่วมกิจกรรมช่วงเช้าใน <strong>ห้อง 1712</strong> ก่อนเป็นอันดับแรก</p>
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-200 w-full hover:border-cool-300 hover:shadow-md transition duration-300">
+                        <h3 class="text-2xl font-bold text-cool-800 mb-3"><i class="fa-regular fa-clock mr-2 text-cool-500"></i> รอการตอบกลับ (ภายใน 7 วันทำการ)</h3>
+                        <p class="text-gray-600 mb-4">เจ้าหน้าที่จะติดต่อกลับผ่านทางอีเมลที่ท่านได้ให้ไว้</p>
+                        <div class="bg-blue-50 text-blue-800 text-base p-4 rounded-xl border border-blue-100 flex gap-3 items-start">
+                            <i class="fa-solid fa-circle-info mt-1 text-blue-500 text-xl"></i>
+                            <span>ภาควิชาฯ อาจพิจารณาปรับเปลี่ยนระยะเวลาตามความเหมาะสม หากมีจำนวนผู้ดูงานเกินเกณฑ์หรืออยู่ในช่วงงดรับ</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Time 3 -->
-                <div class="timeline-item relative pl-16">
-                    <div class="absolute left-0 top-0 w-12 h-12 bg-cool-600 text-white rounded-full flex items-center justify-center font-bold text-xl shadow-md border-4 border-white z-10">
-                        <i class="fa-solid fa-chalkboard-user"></i>
+                <!-- ขั้นตอนที่ 3 -->
+                <div class="flex gap-6 md:gap-8">
+                    <div class="flex-shrink-0 flex flex-col items-center">
+                        <div class="w-12 h-12 md:w-16 md:h-16 bg-cool-600 text-white rounded-full flex items-center justify-center font-bold text-2xl shadow-md ring-4 ring-cool-50">3</div>
                     </div>
-                    <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:shadow-md transition">
-                        <h3 class="text-xl font-bold text-cool-800 mb-2">รับการปฐมนิเทศ</h3>
-                        <p class="text-gray-700">เมื่อเสร็จกิจกรรมช่วงเช้า ให้ <strong>กลับมาที่ห้องธุรการอีกครั้ง</strong> เพื่อแนะนำภาควิชาโดยคณาจารย์ และรับแจ้งกำหนดการในการดูงานเพิ่มเติม</p>
+                    <div class="w-full space-y-6">
+                        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-200 w-full">
+                            <h3 class="text-2xl font-bold text-cool-800 mb-6"><i class="fa-solid fa-university mr-2 text-cool-500"></i> เมื่อได้รับการตอบรับแล้ว โปรดดำเนินการดังนี้</h3>
+                            
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <!-- ระดับปริญญาบัณฑิต -->
+                                <div class="bg-cool-50 p-6 rounded-xl border-l-8 border-cool-500">
+                                    <h4 class="font-bold text-cool-900 mb-3 flex items-center text-xl"><i class="fa-solid fa-user-graduate mr-2 text-cool-600"></i> ระดับปริญญาบัณฑิต (นิสิตแพทย์)</h4>
+                                    <ul class="text-base text-gray-700 space-y-3 list-disc list-inside">
+                                        <li>ติดต่อสถาบันของท่านเพื่อทำหนังสือแจ้งการมาดูงานเรียน <b>"คณบดีคณะแพทยศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย"</b></li>
+                                        <li>หากต้องการขอที่พัก <b>โปรดระบุในเอกสารด้วย</b></li>
+                                        <li>การออกหนังสือตอบกลับใช้เวลาไม่เกิน 1 เดือน</li>
+                                        <li class="text-cool-700 font-semibold"><i class="fa-solid fa-check-circle mr-1"></i> หากได้รับอีเมลตอบรับแล้ว ถือว่าภาควิชายืนยันการรับแล้ว</li>
+                                    </ul>
+                                </div>
+
+                                <!-- ระดับหลังปริญญา -->
+                                <div class="bg-teal-50 p-6 rounded-xl border-l-8 border-teal-500">
+                                    <h4 class="font-bold text-teal-900 mb-3 flex items-center text-xl"><i class="fa-solid fa-user-doctor mr-2 text-teal-600"></i> ระดับหลังปริญญา (แพทย์ประจำบ้าน/ต่อยอด)</h4>
+                                    <ul class="text-base text-gray-700 space-y-3 list-disc list-inside">
+                                        <li>ทำบันทึกข้อความส่งตัวจากต้นสังกัดถึง <b>"คณบดี คณะแพทยศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย"</b></li>
+                                        <li>ลงทะเบียนในเว็บไซต์ <a href="http://grad.md.chula.ac.th" target="_blank" class="text-teal-700 hover:underline font-bold">grad.md.chula.ac.th</a></li>
+                                        <li class="text-teal-700 font-semibold"><i class="fa-solid fa-check-circle mr-1"></i> ไม่ต้องส่งเอกสารตัวจริงมาที่คณะฯ</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- ส่วนแจ้งเตือนการส่งหนังสือที่หน่วยงานสารบรรณ (เพิ่มใหม่แบบเน้นย้ำพิเศษ) -->
+                            <div class="mt-8 bg-amber-50 border-l-8 border-amber-600 p-6 md:p-8 rounded-r-2xl shadow-md ring-1 ring-amber-200">
+                                <h4 class="font-bold text-amber-900 mb-4 flex items-center gap-2 text-xl md:text-2xl">
+                                    <i class="fa-solid fa-triangle-exclamation text-amber-600 animate-bounce"></i> ข้อกำหนดสำคัญที่สุด: การนำส่งหนังสือถึงคณบดี
+                                </h4>
+                                <div class="text-amber-950 space-y-3 text-base md:text-lg font-medium leading-relaxed">
+                                    <p class="text-red-700 font-bold text-lg md:text-xl border-b border-amber-200 pb-2">
+                                        ⚠️ หากท่านไม่ส่งหนังสือผ่านหน่วยงานสารบรรณ คณะแพทยศาสตร์ฯ หนังสือจะไม่ได้รับการอนุมัติและเข้าระบบ (กรุณาส่งหนังสือที่สารบรรณกลางเท่านั้น ห้ามนำส่งตรงมายังภาควิชาฯ)
+                                    </p>
+                                    <p>
+                                        กรุณานำส่งหนังสือขอความอนุเคราะห์ล่วงหน้าอย่างน้อย <span class="bg-amber-200 px-1.5 py-0.5 rounded font-bold text-amber-900">2 - 4 สัปดาห์ก่อนมาดูงาน</span> โดยจัดส่งได้เพียง 2 ช่องทางหลักนี้เท่านั้น:
+                                    </p>
+                                </div>
+
+                                <div class="mt-6 grid md:grid-cols-2 gap-6">
+                                    <!-- ช่องทางที่ 1: ส่งทางระบบอีเล็กทรอนิกส์ (แนะนำ) -->
+                                    <div class="bg-white p-5 rounded-xl border border-amber-200 shadow-sm flex flex-col justify-between">
+                                        <div>
+                                            <span class="inline-block text-xs font-bold uppercase tracking-wider text-green-700 bg-green-50 px-2 py-1 rounded-full mb-2">ช่องทางที่ 1 (สะดวกที่สุด)</span>
+                                            <h5 class="font-bold text-gray-800 text-lg mb-2 flex items-center gap-2">
+                                                <i class="fa-solid fa-envelope-open-text text-amber-600"></i> ส่งไฟล์อิเล็กทรอนิกส์ (Email)
+                                            </h5>
+                                            <p class="text-gray-600 text-sm md:text-base mb-4 leading-relaxed">
+                                                ส่งไฟล์สแกนหนังสือขออนุมัติที่มีการลงนามเสร็จสมบูรณ์เรียบร้อยแล้วไปที่อีเมลกลางสารบรรณคณะฯ
+                                            </p>
+                                        </div>
+                                        <div class="bg-gray-50 p-3 rounded-lg border border-gray-100 flex items-center justify-between">
+                                            <a href="mailto:saraban_mdcu@chula.ac.th" class="text-cool-700 font-bold hover:underline select-all text-sm md:text-base break-all">
+                                                saraban_mdcu@chula.ac.th
+                                            </a>
+                                            <button onclick="copyToClipboard('saraban_mdcu@chula.ac.th', this)" class="text-xs bg-white hover:bg-gray-100 border border-gray-300 text-gray-600 px-2.5 py-1.5 rounded transition flex items-center gap-1 flex-shrink-0 ml-2">
+                                                <i class="fa-regular fa-copy"></i> คัดลอก
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <!-- ช่องทางที่ 2: ไปรษณีย์ -->
+                                    <div class="bg-white p-5 rounded-xl border border-amber-200 shadow-sm flex flex-col justify-between">
+                                        <div>
+                                            <span class="inline-block text-xs font-bold uppercase tracking-wider text-amber-700 bg-amber-50 px-2 py-1 rounded-full mb-2">ช่องทางที่ 2</span>
+                                            <h5 class="font-bold text-gray-800 text-lg mb-2 flex items-center gap-2">
+                                                <i class="fa-solid fa-map-location-dot text-amber-600"></i> ส่งทางไปรษณีย์ (เอกสารตัวจริง)
+                                            </h5>
+                                            <p class="text-gray-600 text-sm md:text-base leading-relaxed mb-4">
+                                                <strong>หน่วยงานสารบรรณ คณะแพทยศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย</strong><br>
+                                                เลขที่ 1873 ถนนพระรามที่ 4 แขวงปทุมวัน เขตปทุมวัน กรุงเทพมหานคร 10330
+                                            </p>
+                                        </div>
+                                        <button onclick="copyToClipboard('หน่วยงานสารบรรณ คณะแพทยศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย เลขที่ 1873 ถนนพระรามที่ 4 แขวงปทุมวัน เขตปทุมวัน กรุงเทพมหานคร 10330', this)" class="w-full text-xs bg-gray-50 hover:bg-gray-100 border border-gray-300 text-gray-700 py-2 rounded transition flex items-center justify-center gap-1">
+                                            <i class="fa-regular fa-copy"></i> คัดลอกที่อยู่จัดส่ง
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 2: Locations (2x2 Grid + Map) -->
-        <section>
-            <h2 class="text-3xl font-bold text-cool-900 mb-8 flex items-center">
-                <i class="fa-solid fa-building-user text-cool-500 mr-4"></i> สถานที่ปฏิบัติงานหลัก
-            </h2>
+        <!-- ส่วนของหมายเหตุเพิ่มเติมและระยะเวลาดูงาน -->
+        <section class="grid md:grid-cols-3 gap-8">
+            <!-- หมายเหตุ -->
+            <div class="md:col-span-2 bg-yellow-50 rounded-2xl p-8 border border-yellow-200">
+                <h3 class="font-bold text-yellow-800 mb-4 text-2xl"><i class="fa-solid fa-clipboard-list mr-2"></i> หมายเหตุ</h3>
+                <ul class="space-y-4 text-gray-700 text-lg">
+                    <!-- นิสิตต่างชาติ -->
+                    <li class="flex gap-3 items-start p-2 bg-yellow-100/50 rounded-lg">
+                        <i class="fa-solid fa-earth-americas text-cool-600 mt-1.5 text-xl"></i> 
+                        <span>
+                            <b>สำหรับนิสิตต่างชาติ:</b> แบบฟอร์มนี้สำหรับนิสิตแพทย์ที่เรียนในประเทศไทย หากมาจากต่างประเทศขอให้ติดต่อผ่านอีเมล <a href="mailto:chulamed.international@gmail.com" class="text-blue-600 underline font-semibold break-all">chulamed.international@gmail.com</a>
+                        </span>
+                    </li>
+
+                    <!-- คุณสมบัติวิชาเรียน -->
+                    <li class="flex gap-3 items-start text-red-600 font-bold p-2 bg-red-50 rounded-lg border border-red-100">
+                        <i class="fa-solid fa-check mt-1.5 text-xl"></i> 
+                        <span>คุณสมบัติ: นิสิต/นักศึกษาแพทย์ ต้องผ่านการเรียนรายวิชาโสต ศอ นาสิก (ENT) มาก่อน</span>
+                    </li>
+
+                    <!-- การส่งแบบประเมินผล -->
+                    <li class="flex gap-3 items-start p-2 bg-green-50 border border-green-200 rounded-lg text-green-800">
+                        <i class="fa-solid fa-file-signature text-green-600 mt-1.5 text-xl"></i> 
+                        <span>
+                            <b>การส่งแบบประเมินผล (สำหรับนิสิตแพทย์):</b> เพื่อป้องกันเอกสารสูญหาย ขอความร่วมมือส่งแบบประเมินผลการศึกษาดูงาน ในรูปแบบไฟล์อิเล็กทรอนิกส์เท่านั้น (เช่น ไฟล์ PDF) โดยส่งมาที่อีเมล <a href="mailto:entmdcu.undergrad@gmail.com" class="text-blue-600 underline font-semibold break-all">entmdcu.undergrad@gmail.com</a> <b>หรือแนบไฟล์มาพร้อมกับหนังสือขอความอนุเคราะห์ศึกษาดูงาน (หนังสือส่งตัว)</b> 
+                        </span>
+                    </li>
+
+                    <!-- เรื่องที่พัก -->
+                    <li class="flex gap-3 items-start p-2">
+                        <i class="fa-solid fa-bed text-blue-500 mt-1.5 text-xl"></i> 
+                        <span><b>ที่พัก:</b> ภาควิชาฯ มิได้เป็นผู้ดำเนินการ หากต้องการข้อมูลโปรดติดต่อ ฝ่ายวิชาการ (นิสิต) หรือฝ่ายบัณฑิตศึกษา (แพทย์หลังปริญญา) โดยตรง</span>
+                    </li>
+                    <!-- นิสิต CUMEDi -->
+                    <li class="flex gap-3 items-start p-2">
+                        <i class="fa-solid fa-star text-orange-500 mt-1.5 text-xl"></i> 
+                        <span><b>นิสิต CUMEDi:</b> กรุณาระบุในช่องหมายเหตุว่า "นิสิต CUMEDi"</span>
+                    </li>
+                </ul>
+            </div>
             
-            <div class="grid md:grid-cols-2 gap-6 md:gap-8 mb-10">
-                <!-- Location 1: ภาควิชา -->
-                <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 border-t-8 border-t-blue-500 hover:-translate-y-1 transition duration-300 flex flex-col h-full">
-                    <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-3xl mb-6">
-                        <i class="fa-solid fa-building"></i>
-                    </div>
-                    <h3 class="font-bold text-gray-800 text-2xl mb-2">ภาควิชา/ธุรการ</h3>
-                    <div class="mb-6 flex-grow">
-                        <p class="text-gray-500 text-lg">อาคารรัตนวิทยาพัฒน์ ชั้น 17</p>
-                        <a href="https://maps.app.goo.gl/H6Q2eX4b9g57wvDB7" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium text-base mt-2 transition hover:underline">
-                            <i class="fa-solid fa-map-location-dot mr-1.5"></i>ดูแผนที่ Google Maps
-                        </a>
-                    </div>
-                    <div class="bg-blue-50 text-blue-800 text-sm p-4 rounded-xl font-medium mt-auto">
-                        <i class="fa-solid fa-door-open mr-2 text-blue-500"></i> เข้าทางประตูอาคารฝั่ง A (ใกล้โรงอาหาร)
+            <!-- ระยะเวลาดูงาน -->
+            <div class="bg-cool-50 rounded-2xl p-8 border border-cool-200">
+                <h3 class="font-bold text-cool-800 mb-4 text-2xl"><i class="fa-solid fa-stopwatch mr-2"></i> ระยะเวลาดูงาน</h3>
+                <ul class="space-y-4 text-gray-700 text-lg">
+                    <li class="flex gap-3 items-start"><i class="fa-solid fa-calendar-week text-cool-600 mt-1.5 text-xl"></i> <span>สูงสุด <b>ไม่เกิน 3 สัปดาห์</b> ต่อปีการศึกษา</span></li>
+                    <li class="flex gap-3 items-start"><i class="fa-solid fa-calendar-days text-red-500 mt-1.5 text-xl"></i> <span>กรณีต้องการดูงาน 1 เดือน <b>กรุณาติดต่อเจ้าหน้าที่ภาควิชาฯ ก่อนทุกครั้ง</b></span></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ส่วนลิงก์กิจกรรมสำหรับผู้ศึกษาดูงาน -->
+        <section class="bg-gradient-to-r from-cool-600 to-cool-800 rounded-2xl shadow-lg p-8 text-white relative overflow-hidden group hover:shadow-xl transition duration-300">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-16 -mt-16 z-0"></div>
+            <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="text-center md:text-left">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-3 flex items-center justify-center md:justify-start gap-3">
+                        <i class="fa-solid fa-calendar-check text-yellow-300"></i> กิจกรรมสำหรับผู้ศึกษาดูงาน
+                    </h2>
+                    <p class="text-cool-100 text-lg">ตรวจสอบตารางกิจกรรม รายละเอียดการเรียนการสอน และกิจกรรมที่น่าสนใจ</p>
+                </div>
+                <a href="https://sites.google.com/d/1_ywsHT6pirrnZa678K5bzHkaYXEuXiug/p/197-EX7QQUXUkRVWokn1FM7ILlISqd03T/edit" target="_blank" class="flex-shrink-0 bg-white text-cool-700 hover:bg-cool-50 font-bold py-3 px-8 rounded-full shadow-md transition transform hover:scale-105 flex items-center gap-2 text-lg">
+                    <span>ดูรายละเอียด</span> <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- ข้อมูลติดต่อเจ้าหน้าที่เพิ่มเติม -->
+        <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 relative overflow-hidden">
+             <div class="absolute top-0 right-0 w-32 h-32 bg-cool-50 rounded-bl-full -mr-6 -mt-6 z-0"></div>
+            <h3 class="font-bold text-gray-800 mb-8 text-center text-2xl relative z-10">สอบถามข้อมูลเพิ่มเติม</h3>
+            <div class="grid md:grid-cols-2 gap-8 relative z-10">
+                <div class="flex items-center gap-6 p-6 bg-gray-50 rounded-xl border border-gray-100 hover:border-cool-200 transition">
+                    <div class="bg-teal-100 text-teal-600 w-16 h-16 rounded-full flex items-center justify-center text-2xl shadow-sm"><i class="fa-solid fa-user-tie"></i></div>
+                    <div>
+                        <p class="font-bold text-gray-800 text-xl">คุณสุธี วิลัยศรี</p>
+                        <p class="text-base text-gray-500">การศึกษาระดับหลังปริญญา</p>
+                        <p class="text-lg text-teal-700 mt-2 font-medium"><i class="fa-solid fa-phone"></i> 02-256-4000 ต่อ 61721</p>
                     </div>
                 </div>
-
-                <!-- Location 2: OPD -->
-                <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 border-t-8 border-t-indigo-500 hover:-translate-y-1 transition duration-300 flex flex-col h-full">
-                    <div class="w-16 h-16 bg-indigo-50 text-indigo-500 rounded-full flex items-center justify-center text-3xl mb-6">
-                        <i class="fa-solid fa-stethoscope"></i>
-                    </div>
-                    <h3 class="font-bold text-gray-800 text-2xl mb-2">คลินิกผู้ป่วยนอก (OPD)</h3>
-                    <div class="mb-6 flex-grow">
-                        <p class="text-gray-500 text-lg">อาคาร ภปร. ชั้น 12</p>
-                        <a href="https://maps.app.goo.gl/VoHyynrpVUUsvv2z7" target="_blank" class="inline-flex items-center text-indigo-600 hover:text-indigo-800 font-medium text-base mt-2 transition hover:underline">
-                            <i class="fa-solid fa-map-location-dot mr-1.5"></i>ดูแผนที่ Google Maps
-                        </a>
-                    </div>
-                    <div class="bg-indigo-50 text-indigo-800 text-sm p-4 rounded-xl font-medium mt-auto leading-relaxed">
-                        ติดต่อห้อง chief resident 23 หรือ Counter B พยาบาลตรงข้ามกับห้อง 23
-                    </div>
-                </div>
-
-                <!-- Location 3: OR -->
-                <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 border-t-8 border-t-red-500 hover:-translate-y-1 transition duration-300 flex flex-col h-full">
-                    <div class="w-16 h-16 bg-red-50 text-red-500 rounded-full flex items-center justify-center text-3xl mb-6">
-                        <i class="fa-solid fa-mask-ventilator"></i>
-                    </div>
-                    <h3 class="font-bold text-gray-800 text-2xl mb-2">ห้องผ่าตัด (OR)</h3>
-                    <div class="mb-6 flex-grow">
-                        <p class="text-gray-500 text-lg">อาคารภูมิสิริฯ ชั้น 8</p>
-                        <a href="https://maps.app.goo.gl/6mvk9CdCEfATm2oaA" target="_blank" class="inline-flex items-center text-red-600 hover:text-red-800 font-medium text-base mt-2 transition hover:underline">
-                            <i class="fa-solid fa-map-location-dot mr-1.5"></i>ดูแผนที่ Google Maps
-                        </a>
-                    </div>
-                    <div class="bg-red-50 text-red-800 text-sm p-4 rounded-xl font-medium mt-auto">
-                        <i class="fa-solid fa-circle-exclamation mr-2 text-red-500"></i> กรุณาแจ้งเคาน์เตอร์ก่อนเข้าห้องผ่าตัดทุกครั้ง เพื่อให้เจ้าหน้าที่นำเข้า
-                    </div>
-                </div>
-
-                <!-- Location 4: Ward -->
-                <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 border-t-8 border-t-green-500 hover:-translate-y-1 transition duration-300 flex flex-col h-full">
-                    <div class="w-16 h-16 bg-green-50 text-green-500 rounded-full flex items-center justify-center text-3xl mb-6">
-                        <i class="fa-solid fa-bed-pulse"></i>
-                    </div>
-                    <h3 class="font-bold text-gray-800 text-2xl mb-2">หอผู้ป่วย (Ward)</h3>
-                    <div class="mb-6 flex-grow">
-                        <p class="text-gray-500 text-lg">อาคารภูมิสิริฯ ชั้น 15</p>
-                        <a href="https://maps.app.goo.gl/6mvk9CdCEfATm2oaA" target="_blank" class="inline-flex items-center text-green-600 hover:text-green-800 font-medium text-base mt-2 transition hover:underline">
-                            <i class="fa-solid fa-map-location-dot mr-1.5"></i>ดูแผนที่ Google Maps
-                        </a>
-                    </div>
-                    <div class="bg-green-50 text-green-800 text-sm p-4 rounded-xl font-medium mt-auto">
-                        <i class="fa-solid fa-location-dot mr-2 text-green-500"></i> หอผู้ป่วย 15A1
+                <div class="flex items-center gap-6 p-6 bg-gray-50 rounded-xl border border-gray-100 hover:border-cool-200 transition">
+                    <div class="bg-cool-100 text-cool-600 w-16 h-16 rounded-full flex items-center justify-center text-2xl shadow-sm"><i class="fa-solid fa-user"></i></div>
+                    <div>
+                        <p class="font-bold text-gray-800 text-xl">คุณเกศแก้ว เกตุมณี</p>
+                        <p class="text-base text-gray-500">การศึกษาระดับปริญญา</p>
+                        <p class="text-lg text-cool-700 mt-2 font-medium"><i class="fa-solid fa-phone"></i> 02-256-4000 ต่อ 61724</p>
                     </div>
                 </div>
             </div>
+            <div class="mt-8 text-center relative z-10">
+                <a href="mailto:entmdcu@gmail.com" class="inline-flex items-center gap-3 text-gray-600 hover:text-cool-600 transition font-medium px-6 py-3 rounded-full hover:bg-cool-50 text-xl">
+                    <i class="fa-solid fa-envelope text-2xl"></i> Email: entmdcu@gmail.com
+                </a>
+            </div>
+        </section>
 
-            <!-- Map Display Section -->
-            <div class="bg-white rounded-3xl shadow-sm border border-gray-200 p-6 md:p-8">
-                <h3 class="text-2xl font-bold text-cool-900 mb-6 flex items-center">
-                    <i class="fa-solid fa-map text-cool-500 mr-3"></i> แผนที่รวม
-                </h3>
-                
-                <div class="bg-gray-100 rounded-2xl overflow-hidden shadow-inner border border-gray-200 aspect-[4/3] md:aspect-[16/9] relative group mb-6">
-                    <!-- Embed Google Drive Image -->
-                    <iframe src="https://drive.google.com/file/d/1w9sUsodB4Wie8lkh0eb_Qvbti_B6BQha/view?usp=drive_link" class="absolute inset-0 w-full h-full" frameborder="0"></iframe>
-                    
-                    <!-- Overlay Hint on Hover -->
-                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center pointer-events-none">
-                        <span class="text-white font-semibold text-lg md:text-xl pointer-events-auto bg-black/50 px-6 py-3 rounded-full backdrop-blur-sm shadow-lg border border-white/20">
-                            <i class="fa-solid fa-up-right-from-square mr-2"></i> คลิกด้านล่างเพื่อดูภาพเต็ม
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="text-center mt-6">
-                    <a href="https://drive.google.com/file/d/1w9sUsodB4Wie8lkh0eb_Qvbti_B6BQha/view?usp=sharing" target="_blank" class="inline-flex items-center gap-3 bg-cool-600 text-white px-8 py-3 rounded-full hover:bg-cool-700 transition shadow-md text-lg font-bold transform hover:-translate-y-1">
-                        <i class="fa-solid fa-expand text-xl"></i> ดูภาพขยาย / ดาวน์โหลดแผนที่
+        <!-- แบบฟอร์มลงทะเบียนศึกษาดูงานของ Google Form -->
+        <section id="register-form" class="scroll-mt-8">
+            <div class="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
+                <div class="bg-gradient-to-r from-cool-50 to-white p-6 border-b border-gray-200 flex justify-between items-center">
+                    <h2 class="text-2xl font-bold text-cool-800"><i class="fa-brands fa-google mr-2 text-cool-600"></i> แบบฟอร์มลงทะเบียน</h2>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScYsUJGyvu2BxsQXC1W1abTTuiWvLpXvcoZeHVDSoJ9mkDpRw/viewform" target="_blank" class="text-base text-cool-600 hover:text-cool-800 hover:underline">
+                        เปิดในหน้าต่างใหม่ <i class="fa-solid fa-up-right-from-square ml-1"></i>
                     </a>
                 </div>
-            </div>
-        </section>
-
-        <!-- Section 3: Morning Activities Table -->
-        <section class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden mt-12">
-            <div class="bg-cool-50 p-6 border-b border-cool-100 flex flex-col md:flex-row justify-between items-center gap-4">
-                <div class="flex items-center gap-3">
-                    <div class="bg-cool-200 text-cool-700 w-12 h-12 rounded-full flex items-center justify-center text-xl shadow-sm flex-shrink-0">
-                        <i class="fa-solid fa-chalkboard"></i>
-                    </div>
-                    <div>
-                        <h2 class="font-bold text-cool-900 text-xl md:text-2xl">ตารางกิจกรรมช่วงเช้า</h2>
-                        <p class="text-sm text-cool-700 mt-1">อาจมีการเปลี่ยนแปลงตามแต่ละสัปดาห์หรือสลับวันที่ในการจัดกิจกรรม</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="p-6 md:p-8">
-                <div class="overflow-x-auto border border-gray-200 rounded-xl">
-                    <table class="w-full text-left border-collapse min-w-[600px]">
-                        <thead>
-                            <tr class="bg-cool-100 text-cool-800">
-                                <th class="p-4 border-b-2 border-cool-200 w-1/4">วัน</th>
-                                <th class="p-4 border-b-2 border-cool-200 w-1/4">เวลาเริ่ม</th>
-                                <th class="p-4 border-b-2 border-cool-200 w-1/4">กิจกรรม</th>
-                                <th class="p-4 border-b-2 border-cool-200 w-1/4">สถานที่</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-gray-700">
-                            <tr class="border-b border-gray-100 hover:bg-gray-50">
-                                <td class="p-4 font-semibold text-gray-900">จันทร์</td>
-                                <td class="p-4">7:30</td>
-                                <td class="p-4">Journal Club</td>
-                                <td class="p-4">ภาควิชา</td>
-                            </tr>
-                            <tr class="border-b border-gray-100 hover:bg-gray-50">
-                                <td class="p-4 font-semibold text-gray-900">อังคาร</td>
-                                <td class="p-4">7:30</td>
-                                <td class="p-4">Lecture</td>
-                                <td class="p-4">ภาควิชา</td>
-                            </tr>
-                            <tr class="border-b border-gray-100 hover:bg-gray-50">
-                                <td class="p-4 font-semibold text-gray-900">พุธ</td>
-                                <td class="p-4">8:00</td>
-                                <td class="p-4">Unit round</td>
-                                <td class="p-4">ภาควิชา หรือ หอผู้ป่วย</td>
-                            </tr>
-                            <tr class="border-b border-gray-100 hover:bg-gray-50">
-                                <td class="p-4 font-semibold text-gray-900">พฤหัสบดี</td>
-                                <td class="p-4">8:00</td>
-                                <td class="p-4">Interesting Case</td>
-                                <td class="p-4">ภาควิชา</td>
-                            </tr>
-                            <tr class="border-b border-gray-100 hover:bg-gray-50">
-                                <td class="p-4 font-semibold text-gray-900 align-top">ศุกร์</td>
-                                <td class="p-4 align-top">
-                                    <div class="mb-2">7:00 – 7:30 หรือ 8:00<br><span class="text-sm text-gray-500">(ตามกำหนดการ)</span></div>
-                                    <div class="pt-2 border-t border-dashed border-gray-200">8:00</div>
-                                </td>
-                                <td class="p-4 align-top">
-                                    <div class="mb-5">Ward round</div>
-                                    <div class="pt-2 border-t border-dashed border-gray-200">Tumor Conference</div>
-                                </td>
-                                <td class="p-4 align-top">
-                                    <div class="mb-5">หอผู้ป่วย</div>
-                                    <div class="pt-2 border-t border-dashed border-gray-200">ภาควิชา</div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                
+                <!-- แถบเตือนก่อนกรอกฟอร์ม -->
+                <div class="bg-amber-50 border-b border-amber-200 px-6 py-3 text-sm md:text-base text-amber-900 font-medium flex items-center gap-2">
+                    <i class="fa-solid fa-triangle-exclamation text-amber-600 text-lg flex-shrink-0"></i>
+                    <span><b>คำเตือนก่อนกรอกฟอร์ม:</b> โปรดเลือกเฉพาะช่วงวันที่ท่านมั่นใจและประสงค์จะมาศึกษาดูงานจริงเพียงช่วงเวลาเดียวเท่านั้น (ภาควิชาฯ จะไม่เลือกช่วงเวลาให้)</span>
                 </div>
 
-                <!-- M&M Warning Box -->
-                <div class="mt-8 bg-gradient-to-r from-red-50 to-white rounded-2xl shadow-sm border border-red-100 p-6 flex flex-col md:flex-row gap-6 items-center md:items-start">
-                    <div class="w-14 h-14 bg-red-100 text-red-600 rounded-full flex items-center justify-center text-2xl flex-shrink-0 shadow-sm">
-                        <i class="fa-solid fa-hand text-red-500"></i>
-                    </div>
-                    <div>
-                        <h2 class="text-xl font-bold text-red-800 mb-2">งดเข้าร่วมกิจกรรม M&M Conference</h2>
-                        <p class="text-gray-700 text-base leading-relaxed">
-                            ใน <strong>วันพฤหัสบดี สัปดาห์ที่ 2 ของทุกเดือน</strong> จะมีกิจกรรม Morbidity and Mortality Conference ซึ่งมีการเปิดเผยประวัติและข้อมูลความลับของผู้ป่วย <strong>จึงขอความร่วมมือผู้มาศึกษาดูงานงดเข้าร่วมกิจกรรมดังกล่าว</strong>
-                        </p>
-                    </div>
+                <div class="w-full h-[800px] bg-gray-50">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScYsUJGyvu2BxsQXC1W1abTTuiWvLpXvcoZeHVDSoJ9mkDpRw/viewform?embedded=true" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0">กำลังโหลด…</iframe>
                 </div>
             </div>
-        </section>
-
-        <!-- Section 4: Activities & OPD Schedule -->
-        <section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 md:p-12">
-            <h2 class="text-2xl font-bold text-cool-900 mb-6 flex items-center">
-                <i class="fa-solid fa-clipboard-list text-cool-500 mr-3"></i> กิจกรรมการศึกษาดูงาน (OPD)
-            </h2>
-            <p class="text-gray-700 mb-4 leading-relaxed">
-                ให้สังเกตการณ์การดูแลรักษาผู้ป่วยนอกที่ <strong>OPD</strong> ร่วมกับอาจารย์ในภาควิชาเป็นหลัก 
-            </p>
-            <div class="bg-cool-50 p-4 rounded-xl border border-cool-100 mb-8 inline-block">
-                <p class="text-cool-800">
-                    <i class="fa-solid fa-lightbulb text-cool-500 mr-2"></i> 
-                    หากมีความสนใจในสาขาวิชา หรืออาจารย์ท่านใดโดยเฉพาะ ต้องการเข้าร่วมกิจกรรมประชุมทางวิชาการ หรือเข้าห้องผ่าตัด <strong>กรุณาแจ้งกับอาจารย์ผู้ดูแล</strong>
-                </p>
-            </div>
-
-            <h3 class="text-xl font-bold text-gray-800 mb-4 border-l-4 border-blue-500 pl-3">ตารางกำหนดการ OPD</h3>
-            
-            <div class="overflow-x-auto border border-gray-200 rounded-xl">
-                <table class="w-full text-left border-collapse min-w-[900px]">
-                    <thead>
-                        <tr class="bg-blue-50 text-blue-800">
-                            <th class="p-4 border-b-2 border-blue-200 w-[18%]">สาขา (Clinic)</th>
-                            <th class="p-4 border-b-2 border-blue-200 w-[16%]">จันทร์</th>
-                            <th class="p-4 border-b-2 border-blue-200 w-[16%]">อังคาร</th>
-                            <th class="p-4 border-b-2 border-blue-200 w-[16%]">พุธ</th>
-                            <th class="p-4 border-b-2 border-blue-200 w-[16%]">พฤหัสบดี</th>
-                            <th class="p-4 border-b-2 border-blue-200 w-[16%]">ศุกร์</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-gray-700 text-sm md:text-base">
-                        <!-- Head & Neck -->
-                        <tr class="border-b hover:bg-gray-50">
-                            <td class="p-4 font-bold text-gray-800 align-top">Head and neck</td>
-                            <td class="p-4 align-top">วรวรรธน์</td>
-                            <td class="p-4 align-top">
-                                <div class="pb-2">วรุตม์</div>
-                                <div class="pt-2 border-t border-dashed border-gray-300 text-gray-500">วิศรุต</div>
-                            </td>
-                            <td class="p-4 align-top">
-                                <div class="pb-2">ณปฎล</div>
-                                <div class="pt-2 border-t border-dashed border-gray-300 text-gray-500">วิศรุต<br>วรวรรธน์</div>
-                            </td>
-                            <td class="p-4 align-top">ณปฎล</td>
-                            <td class="p-4 align-top">วรุตม์</td>
-                        </tr>
-                        <!-- Otology & Rhinology -->
-                        <tr class="border-b hover:bg-gray-50">
-                            <td class="p-4 font-bold text-gray-800 align-top">Otology (Ear) &<br>Rhinology (Nose)</td>
-                            <td class="p-4 align-top">ภาณินี<br>เจษฎา</td>
-                            <td class="p-4 align-top">
-                                <div class="pb-2">พิมรฎา<br>ขจร</div>
-                                <div class="pt-2 border-t border-dashed border-gray-300 text-gray-500">ทรงกลด</div>
-                            </td>
-                            <td class="p-4 align-top">
-                                <div class="pb-2">นัตวรรณ<br>ทัชพงศ์</div>
-                                <div class="pt-2 border-t border-dashed border-gray-300 text-gray-500">สุพินดา<br>เปรม</div>
-                            </td>
-                            <td class="p-4 align-top">
-                                <div class="pb-2">ภาณินี<br>พิมรฎา<br>เพิ่มทรัพย์</div>
-                                <div class="pt-2 border-t border-dashed border-gray-300 text-gray-500">นัตวรรณ<br>ขจร<br>เจษฎา</div>
-                            </td>
-                            <td class="p-4 align-top">
-                                <div class="pb-2">นัตวรรณ<br>ทัชพงศ์</div>
-                                <div class="pt-2 border-t border-dashed border-gray-300 text-gray-500">กรเกียรติ์<br>เปรม</div>
-                            </td>
-                        </tr>
-                        <!-- Facial Plastic -->
-                        <tr class="border-b hover:bg-gray-50">
-                            <td class="p-4 font-bold text-gray-800 align-top">Facial Plastic</td>
-                            <td class="p-4 align-top">ประภิศพันธ์</td>
-                            <td class="p-4 align-top">
-                                <div class="pb-2">กฤษฎา</div>
-                                <div class="pt-2 border-t border-dashed border-gray-300 text-gray-500">ถนอม</div>
-                            </td>
-                            <td class="p-4 align-top">ประภิศพันธ์</td>
-                            <td class="p-4 align-top">
-                                <div class="pb-2">กฤษฎา</div>
-                                <div class="pt-2 border-t border-dashed border-gray-300 text-gray-500">ถนอม</div>
-                            </td>
-                            <td class="p-4 align-top">กฤษฎา</td>
-                        </tr>
-                        <!-- Sleep -->
-                        <tr class="border-b hover:bg-gray-50">
-                            <td class="p-4 font-bold text-gray-800 align-top">Sleep</td>
-                            <td class="p-4 align-top">นทมณฑ์</td>
-                            <td class="p-4 align-top">อวิกา</td>
-                            <td class="p-4 align-top">
-                                <div class="pb-2 text-transparent select-none">-</div>
-                                <div class="pt-2 border-t border-dashed border-gray-300 text-gray-500">ประกอบเกียรติ์</div>
-                            </td>
-                            <td class="p-4 align-top">
-                                <div class="pb-2">นทมณฑ์</div>
-                                <div class="pt-2 border-t border-dashed border-gray-300 text-gray-500">อวิกา</div>
-                            </td>
-                            <td class="p-4 align-top">
-                                <div class="pb-2 text-transparent select-none">-</div>
-                                <div class="pt-2 border-t border-dashed border-gray-300 text-gray-500">นทมณฑ์<br>อวิกา</div>
-                            </td>
-                        </tr>
-                        <!-- Larynx -->
-                        <tr class="border-b hover:bg-gray-50">
-                            <td class="p-4 font-bold text-gray-800 align-top">Larynx</td>
-                            <td class="p-4 align-top">ภัทร์นฤน</td>
-                            <td class="p-4 align-top">พีรดา</td>
-                            <td class="p-4 align-top">
-                                <div class="pb-2 text-transparent select-none">-</div>
-                                <div class="pt-2 border-t border-dashed border-gray-300 text-gray-500">เปรมสุดา<br>พีรดา</div>
-                            </td>
-                            <td class="p-4 align-top">
-                                <div class="pb-2">ภัทร์นฤน<br>เปรมสุดา</div>
-                                <div class="pt-2 border-t border-dashed border-gray-300 text-gray-500">พีรดา</div>
-                            </td>
-                            <td class="p-4 align-top">ภัทร์นฤน<br>เปรมสุดา</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="mt-4 bg-gray-50 p-4 rounded-xl text-sm text-gray-500 border border-gray-200">
-                <i class="fa-solid fa-circle-info text-blue-500 mr-2"></i> <strong>หมายเหตุ:</strong> รายชื่อแพทย์ที่อยู่ <span class="text-gray-400 border-t border-dashed border-gray-400 px-1">ใต้เส้นประ</span> หมายถึง ออกตรวจ OPD ในช่วง <strong>บ่าย</strong>
-            </div>
-
         </section>
 
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-slate-850 text-white py-10 mt-12 border-t border-slate-700">
-        <div class="container mx-auto px-4 text-center">
-            <p class="font-light opacity-90 mb-1 text-lg">ภาควิชาโสต ศอ นาสิกวิทยา</p>
-            <p class="text-sm opacity-60">คณะแพทยศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย</p>
-        </div>
-    </footer>
+    <!-- สคริปต์สำหรับฟังก์ชัน Copy คัดลอกที่อยู่/อีเมลกลางอัตโนมัติ (Clipboard) -->
+    <script>
+        function copyToClipboard(text, buttonElement) {
+            // สร้าง element ชั่วคราวขึ้นมาเพื่อใช้ก๊อปปี้กรณีเบราว์เซอร์มีข้อจำกัดด้านความปลอดภัยของ iFrame
+            const tempInput = document.createElement("textarea");
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            tempInput.setSelectionRange(0, 99999); /* สำหรับระบบปฏิบัติการบนมือถือ */
+            
+            try {
+                document.execCommand("copy");
+                const originalHTML = buttonElement.innerHTML;
+                buttonElement.innerHTML = '<i class="fa-solid fa-check text-green-600"></i> คัดลอกสำเร็จ!';
+                buttonElement.classList.add('bg-green-50', 'border-green-300');
+                
+                setTimeout(() => {
+                    buttonElement.innerHTML = originalHTML;
+                    buttonElement.classList.remove('bg-green-50', 'border-green-300');
+                }, 2000);
+            } catch (err) {
+                console.error('ไม่สามารถคัดลอกได้: ', err);
+            }
+            
+            document.body.removeChild(tempInput);
+        }
+    </script>
 
 </body>
 </html>
