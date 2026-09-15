@@ -3,693 +3,378 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ใบสมัครแพทย์ประจำบ้าน 2570 - ENT MDCU</title>
+    <title>ขั้นตอนการติดต่อศึกษาดูงาน - ภาควิชาโสต ศอ นาสิกวิทยา</title>
+
+    <!-- Google Fonts: ใช้ฟอนต์ Prompt สำหรับภาษาไทยและอังกฤษเพื่อความทันสมัยและอ่านง่าย -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style> 
-        body { font-family: 'Sarabun', sans-serif; background-color: #f9fafb; }
-        .bg-chula { background-color: #ce1255; }
-        .text-chula { color: #ce1255; }
-        .border-chula { border-color: #ce1255; }
-    </style>
-</head>
-<!-- เพิ่ม text-lg และ md:text-xl เพื่อให้ตัวอักษรใหญ่ขึ้นทั้งหน้าเว็บ -->
-<body class="text-gray-800 text-lg pb-16">
 
-    <div class="container mx-auto px-4 py-8 max-w-5xl">
-        
-        <!-- Header -->
-        <div class="text-center mb-10">
-            <h1 class="text-4xl md:text-5xl font-bold text-chula mb-3">ใบสมัครแพทย์ประจำบ้าน ประจำปีการศึกษา 2570</h1>
-            <p class="text-xl text-gray-600 font-medium">ภาควิชาโสต ศอ นาสิกวิทยา คณะแพทยศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย</p>
-        </div>
+    <!-- Font Awesome สำหรับไอคอนตกแต่ง -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        <!-- ระบบนำทาง Tabs -->
-        <div class="flex border-b mb-8 justify-center gap-4">
-            <button onclick="switchTab('new')" id="tab-new" class="py-3 px-6 text-chula border-b-4 border-chula font-bold text-xl transition-colors">
-                กรอกใบสมัครใหม่
-            </button>
-            <button onclick="switchTab('edit')" id="tab-edit" class="py-3 px-6 text-gray-500 hover:text-chula font-medium text-xl border-b-4 border-transparent transition-colors">
-                แก้ไข / แนบเอกสารเพิ่มเติม
-            </button>
-        </div>
-
-        <!-- Section: ค้นหาข้อมูลเดิม (ซ่อนเป็นค่าเริ่มต้น) -->
-        <div id="section-edit" class="hidden bg-white p-8 rounded-xl shadow-sm border border-gray-200 mb-8 max-w-3xl mx-auto">
-            <h2 class="text-2xl font-bold mb-4 text-gray-800">ค้นหาข้อมูลผู้สมัคร</h2>
-            <p class="text-gray-500 mb-4">กรอกรหัสผู้สมัครเพื่อดึงข้อมูลเดิมขึ้นมาแก้ไข หรืออัปโหลดเอกสารเพิ่มเติม</p>
-            <div class="flex flex-col md:flex-row gap-4">
-                <input type="text" id="searchId" placeholder="เช่น ENT70-01/2570" class="flex-1 border border-gray-300 p-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 text-xl">
-                <button onclick="searchData()" class="bg-chula hover:bg-pink-800 text-white font-bold px-8 py-3 rounded-lg transition-colors text-xl">ค้นหา</button>
-            </div>
-            <p id="searchStatus" class="mt-3 font-medium"></p>
-        </div>
-
-        <!-- ======================= ฟอร์มรับสมัครหลัก ======================= -->
-        <form id="applicationForm" class="bg-white p-6 md:p-12 rounded-xl shadow-md border border-gray-100 space-y-12" onsubmit="submitForm(event)">
-            
-           <!-- 1. ข้อมูลส่วนตัว -->
-     
-            <section>
-                <div class="border-b-2 border-pink-100 pb-2 mb-6">
-                    <h2 class="text-3xl font-bold text-chula">1. ข้อมูลส่วนตัว</h2>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    
-                    <!-- ชื่อไทย -->
-                    <div>
-                        <label class="block font-semibold mb-2">คำนำหน้า (ภาษาไทย)</label>
-                        <select name="titleTh" required class="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-pink-200">
-                            <option value="">- เลือก -</option>
-                            <option value="นาย">นาย</option>
-                            <option value="นาง">นาง</option>
-                            <option value="นางสาว">นางสาว</option>
-                        </select>
-                    </div>
-                    <div><label class="block font-semibold mb-2">ชื่อ (ภาษาไทย)</label><input type="text" name="firstNameTh" required class="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-pink-200"></div>
-                    <div><label class="block font-semibold mb-2">นามสกุล (ภาษาไทย)</label><input type="text" name="lastNameTh" required class="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-pink-200"></div>
-
-                    <!-- ชื่ออังกฤษ -->
-                    <div>
-                        <label class="block font-semibold mb-2">คำนำหน้า (อังกฤษ)</label>
-                        <select name="titleEn" required class="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-pink-200">
-                            <option value="">- เลือก -</option>
-                            <option value="Mr.">Mr.</option>
-                            <option value="Mrs.">Mrs.</option>
-                            <option value="Miss">Miss</option>
-                        </select>
-                    </div>
-                    <div><label class="block font-semibold mb-2">First Name</label><input type="text" name="firstNameEn" required class="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-pink-200"></div>
-                    <div><label class="block font-semibold mb-2">Last Name</label><input type="text" name="lastNameEn" required class="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-pink-200"></div>
-
-                    <!-- ข้อมูลอื่นๆ -->
-                    <div><label class="block font-semibold mb-2">ชื่อเล่น</label><input type="text" name="nickname" class="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-pink-200"></div>
-                    <div><label class="block font-semibold mb-2">เพศ</label>
-                        <select name="gender" class="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-pink-200">
-                            <option value="">- เลือก -</option><option value="ชาย">ชาย</option><option value="หญิง">หญิง</option>
-                        </select>
-                    </div>
-                    <div><label class="block font-semibold mb-2">วัน เดือน ปี เกิด</label><input type="date" name="dob" class="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-pink-200"></div>
-                    
-                    <div><label class="block font-semibold mb-2">อายุ (ปี)</label><input type="number" name="age" class="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-pink-200"></div>
-                    <div><label class="block font-semibold mb-2">เลขที่ประจำตัวประชาชน</label><input type="text" name="idCard" required pattern="[0-9]{13}" maxlength="13" class="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-pink-200"></div>
-                    <div><label class="block font-semibold mb-2">เชื้อชาติ</label><input type="text" name="race" class="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-pink-200"></div>
-                    
-                    <div><label class="block font-semibold mb-2">สัญชาติ</label><input type="text" name="nationality" class="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-pink-200"></div>
-                    <div><label class="block font-semibold mb-2">ศาสนา</label><input type="text" name="religion" class="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-pink-200"></div>
-                    <div><label class="block font-semibold mb-2">โทรศัพท์ (บ้าน/ที่ทำงาน)</label><input type="tel" name="phoneHome" class="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-pink-200"></div>
-                    
-                    <div><label class="block font-semibold mb-2">โทรศัพท์มือถือ</label><input type="tel" name="mobile" required class="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-pink-200"></div>
-                    <div class="md:col-span-2"><label class="block font-semibold mb-2">E-mail</label><input type="email" name="email" required class="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-pink-200"></div>
-                </div>
-            </section>
-
-            <!-- 2. ที่อยู่ปัจจุบัน -->
-            <section>
-                <div class="border-b-2 border-pink-100 pb-2 mb-6">
-                    <h2 class="text-3xl font-bold text-chula">2. ที่อยู่ปัจจุบัน</h2>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div><label class="block font-semibold mb-2">เลขที่</label><input type="text" name="addr1_no" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                    <div><label class="block font-semibold mb-2">หมู่บ้าน</label><input type="text" name="addr1_village" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                    <div><label class="block font-semibold mb-2">หมู่ที่</label><input type="text" name="addr1_moo" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                    <div><label class="block font-semibold mb-2">ถนน</label><input type="text" name="addr1_road" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                    <div><label class="block font-semibold mb-2">ตำบล/แขวง</label><input type="text" name="addr1_subdist" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                    <div><label class="block font-semibold mb-2">อำเภอ/เขต</label><input type="text" name="addr1_dist" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                    <div><label class="block font-semibold mb-2">จังหวัด</label><input type="text" name="addr1_prov" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                    <div><label class="block font-semibold mb-2">รหัสไปรษณีย์</label><input type="text" name="addr1_zip" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                </div>
-            </section>
-
-            <!-- 3. ที่อยู่ตามทะเบียนบ้าน -->
-            <section>
-                <div class="border-b-2 border-pink-100 pb-2 mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <h2 class="text-3xl font-bold text-chula">3. ที่อยู่ตามทะเบียนบ้าน</h2>
-                    <label class="inline-flex items-center font-medium text-gray-700 bg-gray-100 px-4 py-2 rounded-lg cursor-pointer">
-                        <input type="checkbox" id="sameAddress" onchange="copyAddress()" class="mr-3 w-5 h-5"> ใช้ที่อยู่เดียวกับปัจจุบัน
-                    </label>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div><label class="block font-semibold mb-2">เลขที่</label><input type="text" name="addr2_no" id="addr2_no" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                    <div><label class="block font-semibold mb-2">หมู่บ้าน</label><input type="text" name="addr2_village" id="addr2_village" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                    <div><label class="block font-semibold mb-2">หมู่ที่</label><input type="text" name="addr2_moo" id="addr2_moo" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                    <div><label class="block font-semibold mb-2">ถนน</label><input type="text" name="addr2_road" id="addr2_road" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                    <div><label class="block font-semibold mb-2">ตำบล/แขวง</label><input type="text" name="addr2_subdist" id="addr2_subdist" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                    <div><label class="block font-semibold mb-2">อำเภอ/เขต</label><input type="text" name="addr2_dist" id="addr2_dist" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                    <div><label class="block font-semibold mb-2">จังหวัด</label><input type="text" name="addr2_prov" id="addr2_prov" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                    <div><label class="block font-semibold mb-2">รหัสไปรษณีย์</label><input type="text" name="addr2_zip" id="addr2_zip" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                </div>
-            </section>
-
-            <!-- 4. ข้อมูลต้นสังกัด -->
-            <section>
-                <div class="border-b-2 border-pink-100 pb-2 mb-6">
-                    <h2 class="text-3xl font-bold text-chula">4. ข้อมูลต้นสังกัด</h2>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block font-semibold mb-2">มีต้นสังกัดหรือไม่?</label>
-                        <select name="hasSponsor" id="hasSponsor" onchange="toggleSponsor()" class="w-full border border-gray-300 p-3 rounded-lg">
-                            <option value="">- เลือก -</option>
-                            <option value="มี">มีต้นสังกัด (โปรดระบุชื่อด้านขวา)</option>
-                            <option value="ไม่มี">ไม่มีต้นสังกัด (อิสระ)</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block font-semibold mb-2 text-gray-400" id="sponsorLabel">ชื่อต้นสังกัด</label>
-                        <input type="text" name="sponsorName" id="sponsorName" disabled class="w-full border border-gray-200 bg-gray-50 p-3 rounded-lg">
-                    </div>
-                </div>
-            </section>
-
-            <!-- 5. ประวัติการศึกษา -->
-            <section>
-                <div class="border-b-2 border-pink-100 pb-2 mb-6">
-                    <h2 class="text-3xl font-bold text-chula">5. ประวัติการศึกษา และคุณวุฒิทางการศึกษา</h2>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="md:col-span-2"><label class="block font-semibold mb-2">ชื่อสถาบันการศึกษาที่สำเร็จการศึกษาวิชาแพทยศาสตร์</label><input type="text" name="medSchool" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                    <div><label class="block font-semibold mb-2">ปี พ.ศ. ที่สำเร็จการศึกษา</label><input type="text" name="gradYear" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                    <div><label class="block font-semibold mb-2">เลขที่ใบประกอบวิชาชีพเวชกรรม</label><input type="text" name="medLicense" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                    <div><label class="block font-semibold mb-2">เกรดเฉลี่ยรวม</label><input type="number" step="0.01" name="gpaTotal" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                    <div><label class="block font-semibold mb-2">เกรดเฉพาะ โสต ศอ นาสิกวิทยา</label><input type="text" name="gpaEnt" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                </div>
-                
-                <div class="mt-8 p-6 bg-gray-50 rounded-xl border border-gray-200">
-                    <h3 class="text-xl font-bold mb-6 text-gray-800">ผลการสอบ ศรว. (NL)</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <!-- Step 1 -->
-                        <div>
-                            <label class="block font-bold mb-2">ขั้นตอนที่ 1</label>
-                            <select name="nl1_status" class="w-full border border-gray-300 p-3 rounded-lg mb-3"><option value="">- ผลการสอบ -</option><option value="ผ่าน">ผ่าน</option><option value="ไม่ผ่าน">ไม่ผ่าน</option></select>
-                            <input type="date" name="nl1_date" placeholder="จัดสอบเมื่อวันที่" class="w-full border border-gray-300 p-3 rounded-lg text-gray-600">
-                        </div>
-                        <!-- Step 2 -->
-                        <div>
-                            <label class="block font-bold mb-2">ขั้นตอนที่ 2</label>
-                            <select name="nl2_status" class="w-full border border-gray-300 p-3 rounded-lg mb-3"><option value="">- ผลการสอบ -</option><option value="ผ่าน">ผ่าน</option><option value="ไม่ผ่าน">ไม่ผ่าน</option></select>
-                            <input type="date" name="nl2_date" placeholder="จัดสอบเมื่อวันที่" class="w-full border border-gray-300 p-3 rounded-lg text-gray-600">
-                        </div>
-                        <!-- Step 3 -->
-                        <div>
-                            <label class="block font-bold mb-2">ขั้นตอนที่ 3 OSCE</label>
-                            <select name="nl3_status" class="w-full border border-gray-300 p-3 rounded-lg mb-3"><option value="">- ผลการสอบ -</option><option value="ผ่าน">ผ่าน</option><option value="ไม่ผ่าน">ไม่ผ่าน</option></select>
-                            <input type="date" name="nl3_date" placeholder="จัดสอบเมื่อวันที่" class="w-full border border-gray-300 p-3 rounded-lg text-gray-600">
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 6. คุณสมบัติ / ประวัติปฏิบัติงาน -->
-            <section>
-                <div class="border-b-2 border-pink-100 pb-2 mb-6">
-                    <h2 class="text-3xl font-bold text-chula">6. คุณสมบัติ / ประวัติการปฏิบัติงาน</h2>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-                    <div>
-                        <label class="block font-semibold mb-2">ผ่านการฝึกเพิ่มพูนทักษะเป็นเวลา 1 ปีหรือไม่?</label>
-                        <select name="intern1Year" class="w-full border border-gray-300 p-3 rounded-lg"><option value="">- เลือก -</option><option value="ผ่าน">ผ่าน</option><option value="ไม่ผ่าน">ไม่ผ่าน</option></select>
-                    </div>
-                    <div><label class="block font-semibold mb-2">สถานที่ฝึกเพิ่มพูนทักษะ</label><input type="text" name="internPlace" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                    <div><label class="block font-semibold mb-2">ชดใช้ทุนด้วยการปฏิบัติงาน (ปี)</label><input type="number" name="workYears" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                    <div><label class="block font-semibold mb-2">สถานที่ทำงานปัจจุบันของผู้สมัคร</label><input type="text" name="currentWorkplace" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                    <div><label class="block font-semibold mb-2">จำนวนครั้งที่สมัครแพทย์ประจำบ้าน (ครั้ง)</label><input type="number" name="applyCount" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                </div>
-
-                <h3 class="text-xl font-bold mb-6 text-gray-800">สถานที่ปฏิบัติงาน 3 ที่สุดท้ายก่อนเข้ารับการฝึกอบรม</h3>
-                <div class="space-y-8">
-                    <!-- ประวัติที่ 1 -->
-                    <div class="p-6 border border-gray-300 rounded-xl bg-gray-50 relative">
-                        <span class="absolute -top-4 left-6 bg-gray-200 px-4 py-1 rounded-full text-sm font-bold text-gray-700 border border-gray-300">ลำดับที่ 1 (ล่าสุด)</span>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-4">
-                            <div class="md:col-span-2"><label class="block font-semibold mb-2">สถานที่ปฏิบัติงาน</label><input type="text" name="work1_place" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                            <div><label class="block font-semibold mb-2">ตำแหน่ง</label><input type="text" name="work1_pos" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                            <div><label class="block font-semibold mb-2">จังหวัด</label><input type="text" name="work1_prov" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                            <div><label class="block font-semibold mb-2">ชื่อผู้รับรอง</label><input type="text" name="work1_ref" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                            <div><label class="block font-semibold mb-2">เบอร์โทรศัพท์ที่ติดต่อได้</label><input type="text" name="work1_tel" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                            <div class="md:col-span-2"><label class="block font-semibold mb-2">ช่วงเวลาที่ปฏิบัติงาน (เช่น ม.ค. 68 - ธ.ค. 69)</label><input type="text" name="work1_period" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                        </div>
-                    </div>
-                    
-                    <!-- ประวัติที่ 2 -->
-                    <div class="p-6 border border-gray-300 rounded-xl bg-gray-50 relative">
-                        <span class="absolute -top-4 left-6 bg-gray-200 px-4 py-1 rounded-full text-sm font-bold text-gray-700 border border-gray-300">ลำดับที่ 2</span>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-4">
-                            <div class="md:col-span-2"><label class="block font-semibold mb-2">สถานที่ปฏิบัติงาน</label><input type="text" name="work2_place" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                            <div><label class="block font-semibold mb-2">ตำแหน่ง</label><input type="text" name="work2_pos" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                            <div><label class="block font-semibold mb-2">จังหวัด</label><input type="text" name="work2_prov" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                            <div><label class="block font-semibold mb-2">ชื่อผู้รับรอง</label><input type="text" name="work2_ref" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                            <div><label class="block font-semibold mb-2">เบอร์โทรศัพท์ที่ติดต่อได้</label><input type="text" name="work2_tel" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                            <div class="md:col-span-2"><label class="block font-semibold mb-2">ช่วงเวลาที่ปฏิบัติงาน</label><input type="text" name="work2_period" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                        </div>
-                    </div>
-
-                    <!-- ประวัติที่ 3 -->
-                    <div class="p-6 border border-gray-300 rounded-xl bg-gray-50 relative">
-                        <span class="absolute -top-4 left-6 bg-gray-200 px-4 py-1 rounded-full text-sm font-bold text-gray-700 border border-gray-300">ลำดับที่ 3</span>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-4">
-                            <div class="md:col-span-2"><label class="block font-semibold mb-2">สถานที่ปฏิบัติงาน</label><input type="text" name="work3_place" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                            <div><label class="block font-semibold mb-2">ตำแหน่ง</label><input type="text" name="work3_pos" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                            <div><label class="block font-semibold mb-2">จังหวัด</label><input type="text" name="work3_prov" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                            <div><label class="block font-semibold mb-2">ชื่อผู้รับรอง</label><input type="text" name="work3_ref" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                            <div><label class="block font-semibold mb-2">เบอร์โทรศัพท์ที่ติดต่อได้</label><input type="text" name="work3_tel" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                            <div class="md:col-span-2"><label class="block font-semibold mb-2">ช่วงเวลาที่ปฏิบัติงาน</label><input type="text" name="work3_period" class="w-full border border-gray-300 p-3 rounded-lg"></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 7. สถาบันฝึกอบรม -->
-            <section>
-                <div class="border-b-2 border-pink-100 pb-2 mb-6">
-                    <h2 class="text-3xl font-bold text-chula">7. สถาบันฝึกอบรมที่ต้องการสมัคร</h2>
-                    <p class="text-gray-600 mt-2">สามารถสมัครได้มากกว่า 1 สถาบัน (ลำดับที่เลือกไม่มีผลต่อการพิจารณารับเข้าฝึกอบรม)</p>
-                </div>
-                
-                <!-- สคริปต์รายชื่อสถาบันใช้สร้าง Dropdown อัตโนมัติ พร้อมเน้นลำดับที่ 1 -->
-                <script>
-                    const institutes = [
-                        "1. คณะแพทยศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย",
-                        "2. คณะแพทยศาสตร์ ศิริราชพยาบาล",
-                        "3. คณะแพทยศาสตร์ โรงพยาบาลรามาธิบดี",
-                        "4. วิทยาลัยแพทยศาสตร์พระมงกุฎเกล้า",
-                        "5. คณะแพทยศาสตร์วชิรพยาบาล",
-                        "6. โรงพยาบาลราชวิถี",
-                        "7. คณะแพทยศาสตร์ ม.ธรรมศาสตร์",
-                        "8. โรงพยาบาลภูมิพลอดุลยเดช",
-                        "9. คณะแพทยศาสตร์ มหาวิทยาลัยศรีนครินทรวิโรฒ",
-                        "10. คณะแพทยศาสตร์ มหาวิทยาลัยสงขลานครินทร์",
-                        "11. คณะแพทยศาสตร์ มหาวิทยาลัยขอนแก่น",
-                        "12. คณะแพทยศาสตร์ มหาวิทยาลัยเชียงใหม่"
-                    ];
-                    
-                    document.write('<div class="space-y-6 max-w-3xl">');
-                    
-                    // สร้างสำหรับอันดับที่ 1 แบบเน้นเป็นพิเศษ
-                    document.write(`
-                        <div class="p-6 bg-pink-50 border-2 border-pink-300 rounded-xl shadow-sm">
-                            <label class="block text-xl font-bold text-chula mb-3">ชื่อสถาบันฝึกอบรมที่เลือกเป็นลำดับที่ 1</label>
-                            <select name="choice1" class="w-full border border-gray-300 p-4 rounded-lg focus:ring-2 focus:ring-pink-300 text-xl font-semibold text-gray-800">
-                                <option value="">- เลือกสถาบันอันดับ 1 -</option>
-                    `);
-                    institutes.forEach(inst => { document.write(`<option value="${inst}">${inst}</option>`); });
-                    document.write('</select></div>');
-
-                    // สร้างสำหรับอันดับ 2-5
-                    for(let i=2; i<=5; i++) {
-                        document.write(`
-                            <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 pl-2">
-                                <span class="font-bold text-gray-600 sm:w-24 text-lg">ลำดับที่ ${i}</span>
-                                <select name="choice${i}" class="flex-1 border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-pink-200">
-                                    <option value="">- เลือกสถาบัน -</option>
-                        `);
-                        institutes.forEach(inst => {
-                            document.write(`<option value="${inst}">${inst}</option>`);
-                        });
-                        document.write('</select></div>');
-                    }
-                    document.write('</div>');
-                </script>
-            </section>
-<!-- 8. เอกสารแนบ (อัปโหลด) -->
-            <section>
-                <div class="border-b-2 border-pink-100 pb-2 mb-6">
-                    <h2 class="text-3xl font-bold text-chula">8. อัปโหลดเอกสารประกอบการสมัคร</h2>
-                    <p class="text-gray-500 mt-2 text-base">รองรับไฟล์นามสกุล .pdf, .jpg, .png (แนะนำไม่เกิน 15MB ต่อไฟล์ — หากไฟล์ใหญ่เกิน ระบบจะแจ้งเตือนให้บีบอัดก่อนส่ง) (หากต้องการเลือกหลายไฟล์ในช่องเดียวกัน ให้กดปุ่ม Ctrl หรือ Cmd ค้างไว้ขณะเลือกไฟล์)</p>
-                </div>
-                
-                <!-- เปลี่ยนเป็น space-y-4 เพื่อให้เรียงเป็นแถวเดียวลงมา -->
-                <div class="space-y-4">
-                    
-                    <!-- 1. บัตรประชาชน -->
-                    <div class="p-5 border border-gray-200 rounded-xl bg-gray-50 hover:bg-white hover:border-pink-300 hover:shadow-md transition-all duration-200">
-                        <label class="block font-bold mb-3 text-gray-800">1. สำเนาบัตรประจำตัวประชาชน</label>
-                        <input type="file" name="fileIdCard" accept=".pdf,.jpg,.jpeg,.png" class="block w-full text-base text-gray-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:font-semibold file:bg-gray-200 file:text-gray-700 hover:file:bg-gray-300 file:cursor-pointer cursor-pointer">
-                    </div>
-                    
-                    <!-- 2. เปลี่ยนชื่อ (ถ้ามี) -->
-                    <div class="p-5 border border-gray-200 rounded-xl bg-gray-50 hover:bg-white hover:border-pink-300 hover:shadow-md transition-all duration-200">
-                        <label class="block font-bold mb-3 text-gray-800">2. สำเนาใบเปลี่ยนชื่อ-สกุล / ใบทะเบียนสมรส <span class="text-gray-500 font-normal text-sm">(ถ้ามี)</span></label>
-                        <input type="file" name="fileNameChange" accept=".pdf,.jpg,.jpeg,.png" class="block w-full text-base text-gray-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:font-semibold file:bg-gray-200 file:text-gray-700 hover:file:bg-gray-300 file:cursor-pointer cursor-pointer">
-                    </div>
-                    
-                    <!-- 3. ใบประกอบวิชาชีพ -->
-                    <div class="p-5 border border-gray-200 rounded-xl bg-gray-50 hover:bg-white hover:border-pink-300 hover:shadow-md transition-all duration-200">
-                        <label class="block font-bold mb-3 text-gray-800">3. สำเนาใบอนุญาตประกอบวิชาชีพเวชกรรม / หนังสือรับรอง</label>
-                        <input type="file" name="fileLicense" accept=".pdf,.jpg,.jpeg,.png" class="block w-full text-base text-gray-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:font-semibold file:bg-gray-200 file:text-gray-700 hover:file:bg-gray-300 file:cursor-pointer cursor-pointer">
-                    </div>
-                    
-                    <!-- 4. เพิ่มพูนทักษะ -->
-                    <div class="p-5 border border-gray-200 rounded-xl bg-gray-50 hover:bg-white hover:border-pink-300 hover:shadow-md transition-all duration-200">
-                        <label class="block font-bold mb-3 text-gray-800">4. สำเนาประกาศนียบัตร / ใบรับรองผ่านเพิ่มพูนทักษะ</label>
-                        <input type="file" name="fileIntern" accept=".pdf,.jpg,.jpeg,.png" class="block w-full text-base text-gray-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:font-semibold file:bg-gray-200 file:text-gray-700 hover:file:bg-gray-300 file:cursor-pointer cursor-pointer">
-                    </div>
-
-                    <!-- 5. ต้นสังกัด -->
-                    <div class="p-5 border border-gray-200 rounded-xl bg-gray-50 hover:bg-white hover:border-pink-300 hover:shadow-md transition-all duration-200">
-                        <label class="block font-bold mb-3 text-gray-800">5. หนังสือจากต้นสังกัด อนุมัติให้เข้าฝึกอบรม <span class="text-gray-500 font-normal text-sm">(เฉพาะผู้มีต้นสังกัด)</span></label>
-                        <input type="file" name="fileSponsor" accept=".pdf,.jpg,.jpeg,.png" class="block w-full text-base text-gray-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:font-semibold file:bg-gray-200 file:text-gray-700 hover:file:bg-gray-300 file:cursor-pointer cursor-pointer">
-                    </div>
-                    
-                    <!-- 6. Transcript -->
-                    <div class="p-5 border border-gray-200 rounded-xl bg-gray-50 hover:bg-white hover:border-pink-300 hover:shadow-md transition-all duration-200">
-                        <label class="block font-bold mb-3 text-gray-800">6. ใบแสดงผลการศึกษา (Transcript) แพทยศาสตร์</label>
-                        <input type="file" name="fileTranscript" accept=".pdf,.jpg,.jpeg,.png" class="block w-full text-base text-gray-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:font-semibold file:bg-gray-200 file:text-gray-700 hover:file:bg-gray-300 file:cursor-pointer cursor-pointer">
-                    </div>
-
-                    <!-- 7. ศรว -->
-                    <div class="p-5 border border-gray-200 rounded-xl bg-gray-50 hover:bg-white hover:border-pink-300 hover:shadow-md transition-all duration-200">
-                        <label class="block font-bold mb-3 text-gray-800">7. เอกสารผลคะแนน ศรว. (NL)</label>
-                        <input type="file" name="fileNL" accept=".pdf,.jpg,.jpeg,.png" class="block w-full text-base text-gray-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:font-semibold file:bg-gray-200 file:text-gray-700 hover:file:bg-gray-300 file:cursor-pointer cursor-pointer">
-                    </div>
-
-                    <!-- 8. CV -->
-                    <div class="p-5 border border-gray-200 rounded-xl bg-gray-50 hover:bg-white hover:border-pink-300 hover:shadow-md transition-all duration-200">
-                        <label class="block font-bold mb-3 text-gray-800">8. ประวัติย่อ (CV) <span class="text-gray-500 font-normal text-sm">ความยาวไม่เกิน 2 หน้า</span></label>
-                        <input type="file" name="fileCV" accept=".pdf,.jpg,.jpeg,.png" class="block w-full text-base text-gray-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:font-semibold file:bg-gray-200 file:text-gray-700 hover:file:bg-gray-300 file:cursor-pointer cursor-pointer">
-                    </div>
-                    
-                    <!-- 9. Portfolio -->
-                    <div class="p-5 border border-gray-200 rounded-xl bg-gray-50 hover:bg-white hover:border-pink-300 hover:shadow-md transition-all duration-200">
-                        <label class="block font-bold mb-3 text-gray-800">9. Portfolio <span class="text-gray-500 font-normal text-sm">(จะมีหรือไม่มีก็ได้)</span></label>
-                        <input type="file" name="filePortfolio" accept=".pdf,.jpg,.jpeg,.png" class="block w-full text-base text-gray-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:font-semibold file:bg-gray-200 file:text-gray-700 hover:file:bg-gray-300 file:cursor-pointer cursor-pointer">
-                    </div>
-
-                    <!-- 10. หนังสือรับรอง (MULTIPLE) -->
-                    <div class="p-5 border border-gray-200 rounded-xl bg-gray-50 hover:bg-white hover:border-pink-300 hover:shadow-md transition-all duration-200">
-                        <label class="block font-bold mb-3 text-gray-800">10. หนังสือรับรอง/แนะนำผู้สมัคร <span class="text-gray-500 font-normal text-sm">(ถ้ามี - สามารถเลือกได้หลายไฟล์)</span></label>
-                        <input type="file" name="fileRecLetter" multiple accept=".pdf,.jpg,.jpeg,.png" class="block w-full text-base text-gray-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:font-semibold file:bg-gray-200 file:text-gray-700 hover:file:bg-gray-300 file:cursor-pointer cursor-pointer">
-                    </div>
-
-                    <!-- 11. ใบรับรองแพทย์ (MULTIPLE) -->
-                    <div class="p-5 border border-gray-200 rounded-xl bg-gray-50 hover:bg-white hover:border-pink-300 hover:shadow-md transition-all duration-200">
-                        <label class="block font-bold mb-3 text-gray-800">11. ใบรับรองแพทย์ และเอกสารตรวจตาสามมิติ <span class="text-gray-500 font-normal text-sm">(สามารถเลือกได้หลายไฟล์)</span></label>
-                        <input type="file" name="fileMedical" multiple accept=".pdf,.jpg,.jpeg,.png" class="block w-full text-base text-gray-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:font-semibold file:bg-gray-200 file:text-gray-700 hover:file:bg-gray-300 file:cursor-pointer cursor-pointer">
-                    </div>
-                        
-                </div>
-            </section>
-            <input type="hidden" name="appId" id="appId" value="">
-
-            <!-- แถบแสดงความคืบหน้าการอัปโหลด -->
-            <div id="uploadProgress" class="hidden max-w-3xl mx-auto">
-                <div class="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
-                    <div id="uploadProgressBar" class="bg-chula h-4 rounded-full transition-all duration-300" style="width:0%"></div>
-                </div>
-                <p id="uploadProgressText" class="text-center text-gray-600 mt-2 text-base"></p>
-            </div>
-
-            <div class="pt-10 text-center border-t mt-10">
-                <button type="submit" id="submitBtn" class="bg-chula hover:bg-[#a00c40] text-white font-bold text-2xl py-5 px-14 rounded-xl shadow-lg transition-transform transform hover:scale-105 w-full md:w-auto">
-                    บันทึกข้อมูลและส่งใบสมัคร
-                </button>
-                <p class="text-gray-500 mt-5 font-medium">กรุณาตรวจสอบความถูกต้องก่อนกดส่งข้อมูล</p>
-            </div>
-        </form>
-    </div>
-
-    <!-- Javascript โลจิกของแบบฟอร์ม -->
-  <script>
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyua7kbOmfvdjTbSEu-HsfbMrcfZRzUrVEJnd2ifuYWa4yaNV2yzKKWVDopU3Cc9hEc/exec';
-
-        // ปรับได้ตามที่ฝั่ง Apps Script/Drive รองรับ (ไฟล์ที่ใหญ่กว่านี้จะถูกเตือนให้บีบอัดก่อน)
-        const MAX_FILE_MB = 15;
-        // ไฟล์รูปภาพที่ใหญ่กว่านี้จะถูกย่อขนาด/บีบอัดอัตโนมัติก่อนส่ง (PDF จะไม่ถูกแตะต้อง)
-        const IMAGE_MAX_DIMENSION = 1600;
-        const IMAGE_QUALITY = 0.75;
-
-       function switchTab(tab) {
-            const form = document.getElementById('applicationForm');
-            const editSection = document.getElementById('section-edit');
-            const tNew = document.getElementById('tab-new');
-            const tEdit = document.getElementById('tab-edit');
-            const statusText = document.getElementById('searchStatus');
-
-            if(tab === 'new') {
-                editSection.classList.add('hidden');
-                form.classList.remove('hidden');
-                form.reset();
-                document.getElementById('appId').value = '';
-                
-                tNew.classList.add('text-chula', 'border-chula');
-                tNew.classList.remove('text-gray-500', 'border-transparent');
-                tEdit.classList.add('text-gray-500', 'border-transparent');
-                tEdit.classList.remove('text-chula', 'border-chula');
-                
-                document.getElementById('submitBtn').innerText = 'บันทึกข้อมูลและส่งใบสมัคร';
-                statusText.innerText = '';
-            } else {
-                editSection.classList.remove('hidden');
-                form.classList.add('hidden');
-                form.reset();
-                
-                tEdit.classList.add('text-chula', 'border-chula');
-                tEdit.classList.remove('text-gray-500', 'border-transparent');
-                tNew.classList.add('text-gray-500', 'border-transparent');
-                tNew.classList.remove('text-chula', 'border-chula');
-                
-                document.getElementById('submitBtn').innerText = 'ส่งข้อมูลการอัปเดต';
-                statusText.innerText = '';
-            }
-        }
-
-        function searchData() {
-            const searchId = document.getElementById('searchId').value.trim();
-            const statusText = document.getElementById('searchStatus');
-            const form = document.getElementById('applicationForm');
-
-            if(!searchId) {
-                statusText.innerText = 'กรุณากรอกรหัสผู้สมัคร หรือ เลขบัตรประชาชน';
-                statusText.className = 'mt-3 font-medium text-red-500';
-                form.classList.add('hidden');
-                return;
-            }
-
-            statusText.innerText = 'กำลังค้นหาข้อมูล...';
-            statusText.className = 'mt-3 font-medium text-blue-500';
-
-            fetch(`${SCRIPT_URL}?action=search&searchId=${encodeURIComponent(searchId)}`)
-            .then(response => response.json())
-            .then(result => {
-                if(result.status === 'success') {
-                    statusText.innerText = 'พบข้อมูล! แสดงฟอร์มด้านล่างเพื่อให้ท่านแก้ไข (ข้อมูลไฟล์เอกสารเดิมจะถูกจัดเก็บไว้แล้ว หากต้องการเพิ่มสามารถอัปโหลดไฟล์ใหม่ได้)';
-                    statusText.className = 'mt-3 font-bold text-green-600';
-                    populateForm(result.data);
-                    form.classList.remove('hidden'); 
-                } else {
-                    statusText.innerText = 'ไม่พบข้อมูลผู้สมัครนี้ กรุณาตรวจสอบรหัสอีกครั้ง';
-                    statusText.className = 'mt-3 font-medium text-red-500';
-                    form.classList.add('hidden');
-                }
-            })
-            .catch(error => {
-                statusText.innerText = 'เกิดข้อผิดพลาดในการเชื่อมต่อระบบ';
-                statusText.className = 'mt-3 font-medium text-red-500';
-            });
-        }
-
-        function populateForm(data) {
-            document.getElementById('appId').value = data.appId || '';
-            Object.keys(data).forEach(key => {
-                const field = document.querySelector(`[name="${key}"]`);
-                if(field && field.type !== 'file') {
-                    field.value = data[key];
-                }
-            });
-            toggleSponsor();
-        }
-
-        // ฟังก์ชันอ่านไฟล์เป็น Base64
-        function readFileAsBase64(file) {
-            return new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                reader.onload = () => resolve(reader.result.split(',')[1]);
-                reader.onerror = error => reject(error);
-                reader.readAsDataURL(file);
-            });
-        }
-
-        // ย่อ/บีบอัดไฟล์รูปภาพก่อนอัปโหลด (ไม่แตะไฟล์ PDF) เพื่อลดขนาด base64 ที่ต้องส่ง
-        function compressImageIfNeeded(file) {
-            return new Promise((resolve) => {
-                if (!file.type || !file.type.startsWith('image/')) {
-                    resolve(file); // ไม่ใช่รูปภาพ (เช่น PDF) ส่งต้นฉบับไปตามเดิม
-                    return;
-                }
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    const img = new Image();
-                    img.onload = () => {
-                        let { width, height } = img;
-                        if (width > IMAGE_MAX_DIMENSION || height > IMAGE_MAX_DIMENSION) {
-                            const scale = IMAGE_MAX_DIMENSION / Math.max(width, height);
-                            width = Math.round(width * scale);
-                            height = Math.round(height * scale);
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Prompt', 'sans-serif'],
+                    },
+                    colors: {
+                        cool: {
+                            50: '#f0f9ff', // Sky 50
+                            100: '#e0f2fe', // Sky 100
+                            200: '#bae6fd', // Sky 200
+                            300: '#7dd3fc', // Sky 300
+                            400: '#38bdf8', // Sky 400
+                            500: '#0ea5e9', // Sky 500
+                            600: '#0284c7', // Sky 600
+                            700: '#0369a1', // Sky 700
+                            800: '#075985', // Sky 800
+                            900: '#0c4a6e', // Sky 900
+                        },
+                        slate: {
+                            850: '#1e293b',
                         }
-                        const canvas = document.createElement('canvas');
-                        canvas.width = width;
-                        canvas.height = height;
-                        canvas.getContext('2d').drawImage(img, 0, 0, width, height);
-                        canvas.toBlob((blob) => {
-                            if (!blob || blob.size >= file.size) {
-                                resolve(file); // ถ้าบีบแล้วไม่เล็กลง ใช้ไฟล์เดิม
-                            } else {
-                                resolve(new File([blob], file.name, { type: 'image/jpeg' }));
-                            }
-                        }, 'image/jpeg', IMAGE_QUALITY);
-                    };
-                    img.onerror = () => resolve(file);
-                    img.src = e.target.result;
-                };
-                reader.onerror = () => resolve(file);
-                reader.readAsDataURL(file);
-            });
-        }
-
-        function setProgress(percent, text) {
-            const wrap = document.getElementById('uploadProgress');
-            const bar = document.getElementById('uploadProgressBar');
-            const label = document.getElementById('uploadProgressText');
-            wrap.classList.remove('hidden');
-            bar.style.width = percent + '%';
-            label.innerText = text;
-        }
-
-        async function submitForm(event) {
-            event.preventDefault();
-
-            const submitBtn = document.getElementById('submitBtn');
-            const originalText = submitBtn.innerText;
-            const form = document.getElementById('applicationForm');
-            const formData = new FormData(form);
-
-            // 1. แยกฟิลด์ข้อความออกจากไฟล์ และตรวจสอบขนาดไฟล์ก่อนเริ่มอัปโหลดใดๆ
-            const textData = {};
-            const fileEntries = [];
-            for (const [key, value] of formData.entries()) {
-                if (value instanceof File && value.name !== "") {
-                    if (value.size > MAX_FILE_MB * 1024 * 1024) {
-                        alert(`ไฟล์ "${value.name}" มีขนาด ${(value.size / 1024 / 1024).toFixed(1)}MB ซึ่งเกิน ${MAX_FILE_MB}MB ต่อไฟล์\n\nกรุณาบีบอัดไฟล์ PDF หรือถ่ายรูปใหม่ให้มีขนาดเล็กลง แล้วลองอัปโหลดอีกครั้ง`);
-                        return;
-                    }
-                    fileEntries.push({ field: key, file: value });
-                } else if (!(value instanceof File)) {
-                    textData[key] = value;
-                }
-            }
-
-            // 2. สร้าง appId ถ้ายังไม่มี (ใบสมัครใหม่) เพื่อใช้เชื่อมไฟล์ทั้งหมดเข้ากับแถวข้อมูลเดียวกัน
-            let appId = document.getElementById('appId').value;
-            const isNewApplication = !appId;
-            if (!appId) {
-                appId = 'ENT' + Date.now() + Math.floor(Math.random() * 1000);
-                document.getElementById('appId').value = appId;
-            }
-            textData.appId = appId;
-
-            submitBtn.disabled = true;
-
-            try {
-                // 3. ส่งข้อมูลฟอร์ม (ข้อความล้วน) เป็น request แรกก่อน - เล็กมาก ไม่มีทางเกิน limit
-                submitBtn.innerText = 'กำลังบันทึกข้อมูลฟอร์ม...';
-                setProgress(5, 'กำลังบันทึกข้อมูลฟอร์ม...');
-                const saveRes = await fetch(SCRIPT_URL, {
-                    method: 'POST',
-                    body: JSON.stringify({ action: 'saveData', ...textData }),
-                    headers: { 'Content-Type': 'text/plain;charset=utf-8' }
-                });
-                const saveResult = await saveRes.json();
-                if (saveResult.status !== 'success') {
-                    throw new Error(saveResult.message || 'บันทึกข้อมูลฟอร์มไม่สำเร็จ');
-                }
-
-                // 4. ส่งไฟล์ทีละไฟล์ (แต่ละคำขอมีไฟล์เดียว) เพื่อไม่ให้ payload รวมใหญ่เกินไป
-                for (let i = 0; i < fileEntries.length; i++) {
-                    const { field, file } = fileEntries[i];
-                    const percent = 10 + Math.round((i / Math.max(fileEntries.length, 1)) * 85);
-                    submitBtn.innerText = `กำลังอัปโหลดไฟล์ ${i + 1}/${fileEntries.length}...`;
-                    setProgress(percent, `กำลังอัปโหลดไฟล์ ${i + 1}/${fileEntries.length}: ${file.name}`);
-
-                    const fileToSend = await compressImageIfNeeded(file);
-                    const base64 = await readFileAsBase64(fileToSend);
-
-                    const res = await fetch(SCRIPT_URL, {
-                        method: 'POST',
-                        body: JSON.stringify({
-                            action: 'uploadFile',
-                            appId,
-                            field,
-                            name: fileToSend.name,
-                            mimeType: fileToSend.type,
-                            base64
-                        }),
-                        headers: { 'Content-Type': 'text/plain;charset=utf-8' }
-                    });
-                    const result = await res.json();
-                    if (result.status !== 'success') {
-                        throw new Error(`อัปโหลดไฟล์ "${file.name}" ไม่สำเร็จ: ${result.message || ''}`);
                     }
                 }
-
-                // 5. ปิดท้ายด้วย finalize ครั้งเดียว - ฝั่งเซิร์ฟเวอร์จะสร้าง PDF จาก template และส่งอีเมลตอนนี้
-                //    (แทนที่จะสร้าง PDF/ส่งอีเมลซ้ำทุกครั้งที่มีการอัปโหลดไฟล์แบบเดิม)
-                submitBtn.innerText = 'กำลังสร้างเอกสาร PDF และส่งอีเมลยืนยัน...';
-                setProgress(97, 'กำลังสร้างเอกสาร PDF และส่งอีเมลยืนยัน...');
-                const finalizeRes = await fetch(SCRIPT_URL, {
-                    method: 'POST',
-                    body: JSON.stringify({ action: 'finalize', appId, isUpdate: !isNewApplication }),
-                    headers: { 'Content-Type': 'text/plain;charset=utf-8' }
-                });
-                const finalizeResult = await finalizeRes.json();
-                if (finalizeResult.status !== 'success') {
-                    throw new Error(finalizeResult.message || 'สร้างเอกสาร PDF ไม่สำเร็จ');
-                }
-
-                setProgress(100, 'เสร็จสิ้น!');
-                alert(isNewApplication ? 'ส่งใบสมัครสำเร็จ! รหัสของคุณคือ: ' + appId : 'อัปเดตข้อมูลและไฟล์เรียบร้อยแล้ว!');
-                if (isNewApplication) {
-                    form.reset();
-                    document.getElementById('appId').value = '';
-                } else {
-                    document.getElementById('searchStatus').innerText = 'ข้อมูลของคุณถูกอัปเดตเรียบร้อยแล้ว';
-                }
-            } catch (error) {
-                console.error(error);
-                alert('เกิดข้อผิดพลาดในการส่งข้อมูล: ' + error.message);
-            } finally {
-                submitBtn.innerText = originalText;
-                submitBtn.disabled = false;
-                document.getElementById('uploadProgress').classList.add('hidden');
-            }
-        }
-        
-        // ... ฟังก์ชัน copyAddress และ toggleSponsor (ใช้ของเดิมที่เคยให้ไป)
-        function copyAddress() {
-            const isChecked = document.getElementById('sameAddress').checked;
-            const fields = ['no', 'village', 'moo', 'road', 'subdist', 'dist', 'prov', 'zip'];
-            fields.forEach(field => {
-                const target = document.getElementById('addr2_' + field);
-                if(isChecked) {
-                    target.value = document.querySelector(`input[name="addr1_${field}"]`).value;
-                    target.readOnly = true; target.classList.add('bg-gray-100');
-                } else {
-                    target.value = ''; target.readOnly = false; target.classList.remove('bg-gray-100');
-                }
-            });
-        }
-
-        function toggleSponsor() {
-            const status = document.getElementById('hasSponsor').value;
-            const input = document.getElementById('sponsorName');
-            const label = document.getElementById('sponsorLabel');
-            if(status === 'มี') {
-                input.disabled = false; input.classList.remove('bg-gray-50', 'border-gray-200'); input.classList.add('border-gray-300');
-                label.classList.remove('text-gray-400'); label.classList.add('text-gray-800');
-            } else {
-                if(input.value === '') input.value = ''; 
-                input.disabled = true; input.classList.add('bg-gray-50', 'border-gray-200'); input.classList.remove('border-gray-300');
-                label.classList.add('text-gray-400'); label.classList.remove('text-gray-800');
             }
         }
     </script>
+
+    <style>
+        body {
+            font-family: 'Prompt', sans-serif;
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-700 antialiased selection:bg-cool-200 selection:text-cool-900 text-lg md:text-xl">
+
+    <!-- ส่วนหัวเว็บไซต์ (Header) -->
+    <header class="bg-gradient-to-r from-cool-900 to-cool-700 text-white shadow-lg relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 pattern-dots"></div>
+        <div class="container mx-auto px-4 py-10 md:py-14 text-center relative z-10">
+            <div class="inline-block p-4 rounded-full bg-white/10 backdrop-blur-sm mb-4 border border-white/20">
+                <i class="fa-solid fa-id-card-clip text-5xl md:text-6xl text-white"></i>
+            </div>
+            <h1 class="text-3xl md:text-5xl font-bold mb-3">ขั้นตอนการติดต่อเข้ามาศึกษาดูงาน</h1>
+            <p class="text-cool-100 text-xl font-light">ภาควิชาโสต ศอ นาสิกวิทยา คณะแพทยศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-10 max-w-6xl space-y-12">
+
+        <!-- ส่วนประกาศสำคัญช่วงงดรับผู้ศึกษาดูงาน (กล่องสีแดง) -->
+        <section class="bg-white border-l-8 border-red-500 p-8 rounded-r-xl shadow-sm ring-1 ring-gray-100">
+            <h2 class="text-2xl md:text-3xl font-bold text-red-700 mb-6 flex items-center gap-3">
+                <i class="fa-solid fa-bullhorn animate-pulse"></i> ประกาศสำคัญ: ช่วงงดรับผู้ดูงาน
+            </h2>
+            <p class="text-gray-700 mb-6 font-medium text-lg">เนื่องจากในช่วงเวลาดังกล่าวมีผู้ลงทะเบียนครบเต็มจำนวนที่ภาควิชาฯ สามารถดูแลได้ ขออภัยในความไม่สะดวก</p>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-red-50 p-6 rounded-xl border border-red-100">
+                    <h3 class="font-bold text-red-800 mb-3 text-xl"><i class="fa-solid fa-user-xmark mr-2"></i> งดรับผู้ดูงานทั่วไป</h3>
+                    <ul class="list-disc list-inside text-red-700 space-y-2 text-base md:text-lg">
+                        <li>21 - 30 กันยายน  2569 </li>
+                        <li> 1 - 16 ตุลาคม 2569 </li>
+                        <li> 2 - 6 พฤศจิกายน 2569 </li>
+                    </ul>
+                </div>
+                <div class="bg-red-50 p-6 rounded-xl border border-red-100">
+                    <h3 class="font-bold text-red-800 mb-3 text-xl"><i class="fa-solid fa-user-graduate mr-2"></i> งดรับเฉพาะนิสิตแพทย์</h3>
+                    <ul class="list-disc list-inside text-red-700 space-y-2 text-base md:text-lg">
+
+                        <li>21 - 25 ธันวาคม 2569</li>
+                        <li>1 - 26 กุมภาพันธ์ 2570</li>
+                         <li>1 - 5 มีนาคม 2570</li>
+                        <li>15 - 26 มีนาคม 2570</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ส่วนของไทม์ไลน์ขั้นตอนการดำเนินการ -->
+        <section>
+            <h2 class="text-3xl font-bold text-cool-900 mb-10 text-center">ขั้นตอนการดำเนินการ</h2>
+
+           <div class="space-y-8">
+                <!-- ขั้นตอนที่ 1 -->
+                <div class="flex gap-6 md:gap-8">
+                    <div class="flex-shrink-0 flex flex-col items-center">
+                        <div class="w-12 h-12 md:w-16 md:h-16 bg-cool-600 text-white rounded-full flex items-center justify-center font-bold text-2xl shadow-md ring-4 ring-cool-50">1</div>
+                        <div class="h-full w-1.5 bg-cool-200 my-2 rounded"></div>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-200 w-full hover:border-cool-300 hover:shadow-md transition duration-300">
+                        <h3 class="text-2xl font-bold text-cool-800 mb-3"><i class="fa-solid fa-file-pen mr-2 text-cool-500"></i> กรอกแบบฟอร์มลงทะเบียน</h3>
+                        <p class="text-gray-600 mb-4">โปรดกรอกแบบฟอร์มลงทะเบียนศึกษาดูงานสำหรับภาควิชาโสต ศอ นาสิกวิทยา (ตามแบบฟอร์มด้านล่างสุดของหน้านี้)</p>
+
+                        <!-- ข้อความแจ้งเตือนการเลือกวันที่ -->
+                        <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-xl text-red-900 text-base md:text-lg font-medium space-y-1">
+                            <p class="font-bold text-red-700 flex items-center gap-2">
+                                <i class="fa-solid fa-circle-exclamation text-red-600"></i> ข้อกำหนดสำคัญในการระบุวันที่ศึกษาดูงาน:
+                            </p>
+                            <ul class="list-disc list-inside space-y-1 text-red-800 text-sm md:text-base font-normal">
+                                <li>กรุณาลงทะเบียนโดยระบุ <b>ช่วงเวลา/วันที่ท่านมั่นใจว่าจะสามารถมาได้จริงเพียงช่วงเวลาเดียวเท่านั้น</b></li>
+                                <li>ภาควิชาฯ จะเป็นผู้พิจารณาอนุมัติผลตามวันที่ท่านระบุไว้ <b>ขอสงวนสิทธิ์ไม่พิจารณาคำขอที่ระบุหลายช่วงเวลา หรือขอให้ภาควิชาฯ เป็นผู้เลือกช่วงเวลาให้</b></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ขั้นตอนที่ 2 -->
+                <div class="flex gap-6 md:gap-8">
+                    <div class="flex-shrink-0 flex flex-col items-center">
+                        <div class="w-12 h-12 md:w-16 md:h-16 bg-cool-600 text-white rounded-full flex items-center justify-center font-bold text-2xl shadow-md ring-4 ring-cool-50">2</div>
+                        <div class="h-full w-1.5 bg-cool-200 my-2 rounded"></div>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-200 w-full hover:border-cool-300 hover:shadow-md transition duration-300">
+                        <h3 class="text-2xl font-bold text-cool-800 mb-3"><i class="fa-regular fa-clock mr-2 text-cool-500"></i> รอการตอบกลับ (ภายใน 7 วันทำการ)</h3>
+                        <p class="text-gray-600 mb-4">เจ้าหน้าที่จะติดต่อกลับผ่านทางอีเมลที่ท่านได้ให้ไว้</p>
+                        <div class="bg-blue-50 text-blue-800 text-base p-4 rounded-xl border border-blue-100 flex gap-3 items-start">
+                            <i class="fa-solid fa-circle-info mt-1 text-blue-500 text-xl"></i>
+                            <span>ภาควิชาฯ อาจพิจารณาปรับเปลี่ยนระยะเวลาตามความเหมาะสม หากมีจำนวนผู้ดูงานเกินเกณฑ์หรืออยู่ในช่วงงดรับ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ขั้นตอนที่ 3 -->
+                <div class="flex gap-6 md:gap-8">
+                    <div class="flex-shrink-0 flex flex-col items-center">
+                        <div class="w-12 h-12 md:w-16 md:h-16 bg-cool-600 text-white rounded-full flex items-center justify-center font-bold text-2xl shadow-md ring-4 ring-cool-50">3</div>
+                    </div>
+                    <div class="w-full space-y-6">
+                        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-200 w-full">
+                            <h3 class="text-2xl font-bold text-cool-800 mb-6"><i class="fa-solid fa-university mr-2 text-cool-500"></i> เมื่อได้รับการตอบรับแล้ว โปรดดำเนินการดังนี้</h3>
+
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <!-- ระดับปริญญาบัณฑิต -->
+                                <div class="bg-cool-50 p-6 rounded-xl border-l-8 border-cool-500">
+                                    <h4 class="font-bold text-cool-900 mb-3 flex items-center text-xl"><i class="fa-solid fa-user-graduate mr-2 text-cool-600"></i> ระดับปริญญาบัณฑิต (นิสิตแพทย์)</h4>
+                                    <ul class="text-base text-gray-700 space-y-3 list-disc list-inside">
+                                        <li>ติดต่อสถาบันของท่านเพื่อทำหนังสือแจ้งการมาดูงานเรียน <b>"คณบดีคณะแพทยศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย"</b></li>
+                                        <li>หากต้องการขอที่พัก <b>โปรดระบุในเอกสารด้วย</b></li>
+                                        <li>การออกหนังสือตอบกลับใช้เวลาไม่เกิน 1 เดือน</li>
+                                        <li class="text-cool-700 font-semibold"><i class="fa-solid fa-check-circle mr-1"></i> หากได้รับอีเมลตอบรับแล้ว ถือว่าภาควิชายืนยันการรับแล้ว</li>
+                                    </ul>
+                                </div>
+
+                                <!-- ระดับหลังปริญญา -->
+                                <div class="bg-teal-50 p-6 rounded-xl border-l-8 border-teal-500">
+                                    <h4 class="font-bold text-teal-900 mb-3 flex items-center text-xl"><i class="fa-solid fa-user-doctor mr-2 text-teal-600"></i> ระดับหลังปริญญา (แพทย์ประจำบ้าน/ต่อยอด)</h4>
+                                    <ul class="text-base text-gray-700 space-y-3 list-disc list-inside">
+                                        <li>ทำบันทึกข้อความส่งตัวจากต้นสังกัดถึง <b>"คณบดี คณะแพทยศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย"</b></li>
+                                        <li>ลงทะเบียนในเว็บไซต์ <a href="http://grad.md.chula.ac.th" target="_blank" class="text-teal-700 hover:underline font-bold">grad.md.chula.ac.th</a></li>
+                                        <li class="text-teal-700 font-semibold"><i class="fa-solid fa-check-circle mr-1"></i> ไม่ต้องส่งเอกสารตัวจริงมาที่คณะฯ</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- ส่วนแจ้งเตือนการส่งหนังสือที่หน่วยงานสารบรรณ (เพิ่มใหม่แบบเน้นย้ำพิเศษ) -->
+                            <div class="mt-8 bg-amber-50 border-l-8 border-amber-600 p-6 md:p-8 rounded-r-2xl shadow-md ring-1 ring-amber-200">
+                                <h4 class="font-bold text-amber-900 mb-4 flex items-center gap-2 text-xl md:text-2xl">
+                                    <i class="fa-solid fa-triangle-exclamation text-amber-600 animate-bounce"></i> ข้อกำหนดสำคัญ สำหรับการส่งหนังสือขอดูงานของนิสิตแพทย์
+                                </h4>
+                                <div class="text-amber-950 space-y-3 text-base md:text-lg font-medium leading-relaxed">
+                                    <p class="text-red-700 font-bold text-lg md:text-xl border-b border-amber-200 pb-2">
+                                        ⚠️ หากท่านไม่ส่งหนังสือผ่านหน่วยงานสารบรรณ คณะแพทยศาสตร์ฯ หนังสือจะไม่ได้รับการอนุมัติและเข้าระบบ (กรุณาส่งหนังสือที่สารบรรณกลางเท่านั้น ห้ามนำส่งตรงมายังภาควิชาฯ)
+                                    </p>
+                                    <p>
+                                        กรุณานำส่งหนังสือขอความอนุเคราะห์ล่วงหน้าอย่างน้อย <span class="bg-amber-200 px-1.5 py-0.5 rounded font-bold text-amber-900">2 - 4 สัปดาห์ก่อนมาดูงาน</span> โดยจัดส่งได้เพียง 2 ช่องทางหลักนี้เท่านั้น:
+                                    </p>
+                                </div>
+
+                                <div class="mt-6 grid md:grid-cols-2 gap-6">
+                                    <!-- ช่องทางที่ 1: ส่งทางระบบอีเล็กทรอนิกส์ (แนะนำ) -->
+                                    <div class="bg-white p-5 rounded-xl border border-amber-200 shadow-sm flex flex-col justify-between">
+                                        <div>
+                                            <span class="inline-block text-xs font-bold uppercase tracking-wider text-green-700 bg-green-50 px-2 py-1 rounded-full mb-2">ช่องทางที่ 1 (สะดวกที่สุด)</span>
+                                            <h5 class="font-bold text-gray-800 text-lg mb-2 flex items-center gap-2">
+                                                <i class="fa-solid fa-envelope-open-text text-amber-600"></i> ส่งไฟล์อิเล็กทรอนิกส์ (Email)
+                                            </h5>
+                                            <p class="text-gray-600 text-sm md:text-base mb-4 leading-relaxed">
+                                                ส่งไฟล์สแกนหนังสือขออนุมัติที่มีการลงนามเสร็จสมบูรณ์เรียบร้อยแล้วไปที่อีเมลกลางสารบรรณคณะฯ
+                                            </p>
+                                        </div>
+                                        <div class="bg-gray-50 p-3 rounded-lg border border-gray-100 flex items-center justify-between">
+                                            <a href="mailto:saraban_mdcu@chula.ac.th" class="text-cool-700 font-bold hover:underline select-all text-sm md:text-base break-all">
+                                                saraban_mdcu@chula.ac.th
+                                            </a>
+                                            <button onclick="copyToClipboard('saraban_mdcu@chula.ac.th', this)" class="text-xs bg-white hover:bg-gray-100 border border-gray-300 text-gray-600 px-2.5 py-1.5 rounded transition flex items-center gap-1 flex-shrink-0 ml-2">
+                                                <i class="fa-regular fa-copy"></i> คัดลอก
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <!-- ช่องทางที่ 2: ไปรษณีย์ -->
+                                    <div class="bg-white p-5 rounded-xl border border-amber-200 shadow-sm flex flex-col justify-between">
+                                        <div>
+                                            <span class="inline-block text-xs font-bold uppercase tracking-wider text-amber-700 bg-amber-50 px-2 py-1 rounded-full mb-2">ช่องทางที่ 2</span>
+                                            <h5 class="font-bold text-gray-800 text-lg mb-2 flex items-center gap-2">
+                                                <i class="fa-solid fa-map-location-dot text-amber-600"></i> ส่งทางไปรษณีย์ (เอกสารตัวจริง)
+                                            </h5>
+                                            <p class="text-gray-600 text-sm md:text-base leading-relaxed mb-4">
+                                                <strong>หน่วยงานสารบรรณ คณะแพทยศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย</strong><br>
+                                                เลขที่ 1873 ถนนพระรามที่ 4 แขวงปทุมวัน เขตปทุมวัน กรุงเทพมหานคร 10330
+                                            </p>
+                                        </div>
+                                        <button onclick="copyToClipboard('หน่วยงานสารบรรณ คณะแพทยศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย เลขที่ 1873 ถนนพระรามที่ 4 แขวงปทุมวัน เขตปทุมวัน กรุงเทพมหานคร 10330', this)" class="w-full text-xs bg-gray-50 hover:bg-gray-100 border border-gray-300 text-gray-700 py-2 rounded transition flex items-center justify-center gap-1">
+                                            <i class="fa-regular fa-copy"></i> คัดลอกที่อยู่จัดส่ง
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ส่วนของหมายเหตุเพิ่มเติมและระยะเวลาดูงาน -->
+        <section class="grid md:grid-cols-3 gap-8">
+            <!-- หมายเหตุ -->
+            <div class="md:col-span-2 bg-yellow-50 rounded-2xl p-8 border border-yellow-200">
+                <h3 class="font-bold text-yellow-800 mb-4 text-2xl"><i class="fa-solid fa-clipboard-list mr-2"></i> หมายเหตุ</h3>
+                <ul class="space-y-4 text-gray-700 text-lg">
+                    <!-- นิสิตต่างชาติ -->
+                    <li class="flex gap-3 items-start p-2 bg-yellow-100/50 rounded-lg">
+                        <i class="fa-solid fa-earth-americas text-cool-600 mt-1.5 text-xl"></i> 
+                        <span>
+                            <b>สำหรับนิสิตต่างชาติ:</b> แบบฟอร์มนี้สำหรับนิสิตแพทย์ที่เรียนในประเทศไทย หากมาจากต่างประเทศขอให้ติดต่อผ่านอีเมล <a href="mailto:chulamed.international@gmail.com" class="text-blue-600 underline font-semibold break-all">chulamed.international@gmail.com</a>
+                        </span>
+                    </li>
+
+
+                    <!-- คุณสมบัติวิชาเรียน -->
+                    <li class="flex gap-3 items-start text-red-600 font-bold p-2 bg-red-50 rounded-lg border border-red-100">
+                        <i class="fa-solid fa-check mt-1.5 text-xl"></i> 
+                        <span>คุณสมบัติ: นิสิต/นักศึกษาแพทย์ ต้องผ่านการเรียนรายวิชาโสต ศอ นาสิก (ENT) มาก่อน</span>
+                    </li>
+
+                    <!-- การส่งแบบประเมินผล -->
+                    <li class="flex gap-3 items-start p-2 bg-green-50 border border-green-200 rounded-lg text-green-800">
+                        <i class="fa-solid fa-file-signature text-green-600 mt-1.5 text-xl"></i> 
+                        <span>
+                            <b>การส่งแบบประเมินผล (สำหรับนิสิตแพทย์):</b> เพื่อป้องกันเอกสารสูญหาย ขอความร่วมมือส่งแบบประเมินผลการศึกษาดูงาน ในรูปแบบไฟล์อิเล็กทรอนิกส์เท่านั้น (เช่น ไฟล์ PDF) โดยส่งมาที่อีเมล <a href="mailto:entmdcu.undergrad@gmail.com" class="text-blue-600 underline font-semibold break-all">entmdcu.undergrad@gmail.com</a> <b>หรือแนบไฟล์มาพร้อมกับหนังสือขอความอนุเคราะห์ศึกษาดูงาน (หนังสือส่งตัว)</b> 
+                        </span>
+                    </li>
+
+                    <!-- เรื่องที่พัก -->
+                    <li class="flex gap-3 items-start p-2">
+                        <i class="fa-solid fa-bed text-blue-500 mt-1.5 text-xl"></i> 
+                        <span><b>ที่พัก:</b> ภาควิชาฯ มิได้เป็นผู้ดำเนินการ หากต้องการข้อมูลโปรดติดต่อ ฝ่ายวิชาการ (นิสิต) หรือฝ่ายบัณฑิตศึกษา (แพทย์หลังปริญญา) โดยตรง</span>
+                    </li>
+                    <!-- นิสิต CUMEDi -->
+                    <li class="flex gap-3 items-start p-2">
+                        <i class="fa-solid fa-star text-orange-500 mt-1.5 text-xl"></i> 
+                        <span><b>นิสิต CUMEDi:</b> กรุณาระบุในช่องหมายเหตุว่า "นิสิต CUMEDi"</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- ระยะเวลาดูงาน -->
+            <div class="bg-cool-50 rounded-2xl p-8 border border-cool-200">
+                <h3 class="font-bold text-cool-800 mb-4 text-2xl"><i class="fa-solid fa-stopwatch mr-2"></i> ระยะเวลาดูงาน</h3>
+                <ul class="space-y-4 text-gray-700 text-lg">
+                    <li class="flex gap-3 items-start"><i class="fa-solid fa-calendar-week text-cool-600 mt-1.5 text-xl"></i> <span>สูงสุด <b>ไม่เกิน 3 สัปดาห์</b> ต่อปี</span></li>
+                    <li class="flex gap-3 items-start"><i class="fa-solid fa-calendar-days text-red-500 mt-1.5 text-xl"></i> <span>กรณีต้องการดูงาน 1 เดือน <b>กรุณาติดต่อเจ้าหน้าที่ภาควิชาฯ ก่อนทุกครั้ง</b></span></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ส่วนลิงก์กิจกรรมสำหรับผู้ศึกษาดูงาน -->
+        <section class="bg-gradient-to-r from-cool-600 to-cool-800 rounded-2xl shadow-lg p-8 text-white relative overflow-hidden group hover:shadow-xl transition duration-300">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-16 -mt-16 z-0"></div>
+            <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="text-center md:text-left">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-3 flex items-center justify-center md:justify-start gap-3">
+                        <i class="fa-solid fa-calendar-check text-yellow-300"></i> กิจกรรมสำหรับผู้ศึกษาดูงาน
+                    </h2>
+                    <p class="text-cool-100 text-lg">ตรวจสอบตารางกิจกรรม รายละเอียดการเรียนการสอน และกิจกรรมที่น่าสนใจ</p>
+                </div>
+                <a href="https://entmdcu.github.io/electiveentmdcu/page2.html" target="_blank" class="flex-shrink-0 bg-white text-cool-700 hover:bg-cool-50 font-bold py-3 px-8 rounded-full shadow-md transition transform hover:scale-105 flex items-center gap-2 text-lg">
+                    <span>ดูรายละเอียด</span> <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- ข้อมูลติดต่อเจ้าหน้าที่เพิ่มเติม -->
+        <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 relative overflow-hidden">
+             <div class="absolute top-0 right-0 w-32 h-32 bg-cool-50 rounded-bl-full -mr-6 -mt-6 z-0"></div>
+            <h3 class="font-bold text-gray-800 mb-8 text-center text-2xl relative z-10">สอบถามข้อมูลเพิ่มเติม</h3>
+            <div class="grid md:grid-cols-2 gap-8 relative z-10">
+                <div class="flex items-center gap-6 p-6 bg-gray-50 rounded-xl border border-gray-100 hover:border-cool-200 transition">
+                    <div class="bg-teal-100 text-teal-600 w-16 h-16 rounded-full flex items-center justify-center text-2xl shadow-sm"><i class="fa-solid fa-user-tie"></i></div>
+                    <div>
+                        <p class="font-bold text-gray-800 text-xl">คุณสุธี วิลัยศรี </p>
+                        <p class="text-base text-gray-500">การศึกษาระดับหลังปริญญา ตำแหน่งเจ้าหน้าที่บริหารงานทั่วไป</p>
+                        <p class="text-lg text-teal-700 mt-2 font-medium"><i class="fa-solid fa-phone"></i> 02-256-4000 ต่อ 61721</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-6 p-6 bg-gray-50 rounded-xl border border-gray-100 hover:border-cool-200 transition">
+                    <div class="bg-cool-100 text-cool-600 w-16 h-16 rounded-full flex items-center justify-center text-2xl shadow-sm"><i class="fa-solid fa-user"></i></div>
+                    <div>
+                        <p class="font-bold text-gray-800 text-xl">คุณเกศแก้ว เกตุมณี </p>
+                        <p class="text-base text-gray-500">การศึกษาระดับปริญญา ตำแหน่งเจ้าหน้าที่สำนักงาน</p>
+                        <p class="text-lg text-cool-700 mt-2 font-medium"><i class="fa-solid fa-phone"></i> 02-256-4000 ต่อ 61724</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 text-center relative z-10">
+                <a href="mailto:entmdcu@gmail.com" class="inline-flex items-center gap-3 text-gray-600 hover:text-cool-600 transition font-medium px-6 py-3 rounded-full hover:bg-cool-50 text-xl">
+                    <i class="fa-solid fa-envelope text-2xl"></i> Email: entmdcu@gmail.com
+                </a>
+            </div>
+        </section>
+
+        <!-- แบบฟอร์มลงทะเบียนศึกษาดูงานของ Google Form -->
+        <section id="register-form" class="scroll-mt-8">
+            <div class="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
+                <div class="bg-gradient-to-r from-cool-50 to-white p-6 border-b border-gray-200 flex justify-between items-center">
+                    <h2 class="text-2xl font-bold text-cool-800"><i class="fa-brands fa-google mr-2 text-cool-600"></i> แบบฟอร์มลงทะเบียน</h2>
+                    <a href="https://forms.gle/TL8GtSkLVZ2F7QGc7" target="_blank" class="text-base text-cool-600 hover:text-cool-800 hover:underline">
+                        เปิดในหน้าต่างใหม่ <i class="fa-solid fa-up-right-from-square ml-1"></i>
+                    </a>
+                </div>
+                <div class="w-full h-[800px] bg-gray-50">
+                    <iframe src="https://forms.gle/TL8GtSkLVZ2F7QGc7" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0">กำลังโหลด…</iframe>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- สคริปต์สำหรับฟังก์ชัน Copy คัดลอกที่อยู่/อีเมลกลางอัตโนมัติ (Clipboard) -->
+    <script>
+        function copyToClipboard(text, buttonElement) {
+            // สร้าง element ชั่วคราวขึ้นมาเพื่อใช้ก๊อปปี้กรณีเบราว์เซอร์มีข้อจำกัดด้านความปลอดภัยของ iFrame
+            const tempInput = document.createElement("textarea");
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            tempInput.setSelectionRange(0, 99999); /* สำหรับระบบปฏิบัติการบนมือถือ */
+
+            try {
+                document.execCommand("copy");
+                const originalHTML = buttonElement.innerHTML;
+                buttonElement.innerHTML = '<i class="fa-solid fa-check text-green-600"></i> คัดลอกสำเร็จ!';
+                buttonElement.classList.add('bg-green-50', 'border-green-300');
+
+                setTimeout(() => {
+                    buttonElement.innerHTML = originalHTML;
+                    buttonElement.classList.remove('bg-green-50', 'border-green-300');
+                }, 2000);
+            } catch (err) {
+                console.error('ไม่สามารถคัดลอกได้: ', err);
+            }
+
+            document.body.removeChild(tempInput);
+        }
+    </script>
+
+</body>
 </html>
