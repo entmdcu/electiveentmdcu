@@ -96,6 +96,70 @@
                 </div>
             </div>
         </section>
+        <!-- ส่วนกระดานข่าวประชาสัมพันธ์ (Notice Board) -->
+        <section class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 md:p-8 relative overflow-hidden ring-1 ring-gray-100">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="bg-indigo-100 p-3 rounded-xl text-indigo-700 shadow-inner">
+                    <i class="fa-solid fa-bullhorn text-2xl"></i>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800">ข่าวสารและประกาศประชาสัมพันธ์</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- ข่าวที่ 1: ประกาศหอพักแพทย์ -->
+                <div class="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg hover:border-indigo-300 transition duration-300 flex flex-col">
+                    <a href="https://drive.google.com/file/d/1SpoMs4Q8NHDo1IkmdC2TnBd6kESK_962/view?usp=sharing" target="_blank" class="block relative h-48 overflow-hidden bg-gray-100">
+                        <!-- หมายเหตุ: เปลี่ยน src ด้านล่างเป็นลิงก์รูปภาพจริงของหอพัก -->
+                        <img src="https://placehold.co/600x400/e2e8f0/475569?text=Dormitory+Notice" alt="ประกาศหอพักแพทย์" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-indigo-900 bg-opacity-0 group-hover:bg-opacity-20 transition duration-300 flex items-center justify-center">
+                            <i class="fa-solid fa-up-right-from-square text-white opacity-0 group-hover:opacity-100 text-3xl drop-shadow-md"></i>
+                        </div>
+                    </a>
+                    <div class="p-5 flex-1 flex flex-col">
+                        <div class="mb-2">
+                            <span class="text-xs font-bold px-2.5 py-1 bg-indigo-50 text-indigo-700 rounded-md border border-indigo-100">อัปเดตล่าสุด</span>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">ประกาศจากหอพักแพทย์</h3>
+                        <p class="text-gray-600 text-sm mb-4 flex-1">สรุปแนวทางและข้อกำหนดสำคัญในการขอเข้าพัก สำหรับแพทย์ประจำบ้านและผู้เข้าศึกษาดูงาน กรุณาศึกษาโดยละเอียด</p>
+                        <a href="https://drive.google.com/file/d/1SpoMs4Q8NHDo1IkmdC2TnBd6kESK_962/view?usp=sharing" target="_blank" class="text-indigo-600 font-bold hover:text-indigo-800 flex items-center gap-1.5 text-sm">
+                            เปิดอ่านฉบับเต็ม <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ข่าวที่ 2: รับสมัครแพทย์ประจำบ้าน 2570 -->
+                <div class="bg-gray-50 rounded-xl border border-gray-200 p-6 flex flex-col justify-between hover:border-blue-300 hover:bg-white transition duration-300 shadow-sm">
+                    <div>
+                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center text-xl mb-4 shadow-inner">
+                            <i class="fa-solid fa-user-doctor"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">รับสมัครแพทย์ประจำบ้าน <br>ปีการศึกษา 2570</h3>
+                        <p class="text-gray-600 text-sm">เตรียมพบกับประกาศและรายละเอียดคุณสมบัติการรับสมัครแพทย์ประจำบ้าน ภาควิชาโสต ศอ นาสิกวิทยา</p>
+                    </div>
+                    <div class="mt-5">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium bg-amber-100 text-amber-800 border border-amber-200">
+                            <i class="fa-solid fa-hourglass-half animate-pulse"></i> รอลิงก์ลงทะเบียนเร็วๆ นี้
+                        </span>
+                    </div>
+                </div>
+
+                <!-- ข่าวที่ 3: ENT Congress 2027 -->
+                <div class="bg-gray-50 rounded-xl border border-gray-200 p-6 flex flex-col justify-between hover:border-teal-300 hover:bg-white transition duration-300 shadow-sm">
+                    <div>
+                        <div class="w-12 h-12 bg-teal-100 text-teal-600 rounded-lg flex items-center justify-center text-xl mb-4 shadow-inner">
+                            <i class="fa-solid fa-chalkboard-user"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">งานประชุมวิชาการ <br>ENT Congress 2027</h3>
+                        <p class="text-gray-600 text-sm">เตรียมอัปเดตความรู้ทางวิชาการและนวัตกรรมใหม่ๆ ในงานประชุมประจำปีของภาควิชาฯ</p>
+                    </div>
+                    <div class="mt-5">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium bg-gray-200 text-gray-700 border border-gray-300">
+                            <i class="fa-regular fa-image"></i> รอติดตามโปสเตอร์เร็วๆ นี้
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- ส่วนของไทม์ไลน์ขั้นตอนการดำเนินการ -->
         <section>
